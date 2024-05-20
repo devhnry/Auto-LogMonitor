@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: "DevOpsAutomation"
+  task:
+    scheduling:
+      pool:
+        size: 10
+
+logging:
+  file:
+    name: "log/service.log"
+
+server:
+  port: 9100
+
