@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+
 @RestController
 @RequestMapping("/api/v1")
 public class LogDeletionController {
@@ -17,7 +19,7 @@ public class LogDeletionController {
     }
 
     @GetMapping("/delete")
-    public ResponseEntity<String> deleteLogsOlderThanSevenDays(){
+    public ResponseEntity<String> deleteLogsOlderThanSevenDays() throws IOException {
         logDeletionService.deleteLogs();
         return ResponseEntity
                 .status(HttpStatus.OK)
