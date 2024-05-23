@@ -56,6 +56,7 @@ public class LogDeletionService {
             String line;
             String lastCurrentTimestamp = "";
             while ((line = reader.readLine()) != null) {
+                line = line.trim();
                 List<String> logs = new ArrayList<>();
                 logs.add(line);
                 try {
