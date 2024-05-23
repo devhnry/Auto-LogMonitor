@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import java.io.*;
 import java.nio.file.Files;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -18,14 +19,13 @@ import java.util.regex.Pattern;
 @Slf4j
 public class LogDeletionService {
     private static final String logDirectory = "log";
-    private static String timeDate = "";
 
-    public void deleteLogs() throws IOException {
+    public void deleteLogs(){
         System.out.println("Checking log directory: " + logDirectory);
         loopThroughLogDirectory();
     }
 
-    private void loopThroughLogDirectory() throws IOException{
+    private void loopThroughLogDirectory() {
         ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
         File dir = new File(logDirectory);
@@ -46,74 +46,65 @@ public class LogDeletionService {
     }
 
     private void performLogCheckOnFile(String fileName) throws IOException{
-
-
         File logFile = new File(fileName);
         File tempFile = new File(UUID.randomUUID() + ".log");
 
-        boolean success = tempFile.createNewFile();
-        System.out.println("Success: " + success);
-
-        LocalDate currentDate = LocalDate.now();
         try (
                 BufferedReader reader = new BufferedReader(new FileReader(logFile));
                 BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile))
         ) {
-
-            String initialLine = reader.readLine();
-            if(initialLine != null) {
-                String log1 = initialLine.split(" ")[0].split("\\.")[0];
-
-                Pattern pattern = Pattern.compile("\\d{4}-\\d{2}-\\d{2}");
-                Matcher m = pattern.matcher(log1);
-                log.info("The timestamp {} matching the pattern is + {}", log1, m);
-            }
-
             String line;
+            String lastCurrentTimestamp = "";
             while ((line = reader.readLine()) != null) {
                 List<String> logs = new ArrayList<>();
                 logs.add(line);
-
                 try {
                     String timeStamp =  "";
                     for(String log : logs){
-                        Pattern pattern = Pattern.compile("\\d{4}-\\d{2}-\\d{2}");
-                        timeDate = log.split(" ")[0].split("T")[0];
-                        Matcher matching = pattern.matcher(timeDate);
-
-                        if(matching.matches()){
-                            timeStamp = timeDate;
-                        }
-
-                        int year, month, day;
-                        if(timeStamp.isEmpty()){
-                            continue;
+                        if(isTimestampLine(log)){
+                            timeStamp = extractTimestamp(log);
+                            lastCurrentTimestamp = timeStamp;
+                            if (!checkIfTimeStampIsOverdue(timeStamp) && !log.isEmpty() && !isErrorOrIrrelevant(log)) {
+                                writer.write(log);
+                                writer.newLine();
+                            }
                         }else{
-                            year = Integer.parseInt(timeStamp.split("-")[0]);
-                            month = Integer.parseInt(timeStamp.split("-")[1]);
-                            day = Integer.parseInt(timeStamp.split("-")[2]);
-                        }
-                        int overdueDays = currentDate.getDayOfMonth() - LocalDate.of(year, month, day).getDayOfMonth();
-
-                        if (!(overdueDays >= 7) && !line.isEmpty() && !isErrorOrIrrelevant(line)) {
-                            writer.write(log);
-                            writer.newLine();
+                            if (!checkIfTimeStampIsOverdue(lastCurrentTimestamp)) {
+                                writer.write(log);
+                                writer.newLine();
+                            }
                         }
                     }
                 } catch (Exception e) {
-                    System.out.println("Timestamp format error: " + e.getMessage());
+                    log.info("Timestamp format error: {}", e.getMessage());
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            log.info("An error occurred while reading log file: {}", e.getMessage());
         }
 
         try {
             Files.delete(logFile.toPath());
             Files.move(tempFile.toPath(), logFile.toPath());
         } catch (IOException e) {
-            e.printStackTrace();
+            log.info("An error occurred while replacing file: {}", e.getMessage());
         }
+    }
+
+    private static boolean checkIfTimeStampIsOverdue(String timeStamp) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate timeStampDate = LocalDate.parse(timeStamp, formatter);
+        LocalDate currentDate = LocalDate.now();
+
+        return timeStampDate.isBefore(currentDate.minusDays(7));
+    }
+
+    private static boolean isTimestampLine(String line) {
+        return line.matches("\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}\\+\\d{2}:\\d{2}.*");
+    }
+
+    private static String extractTimestamp(String line) {
+        return line.split(" ")[0].split("T")[0];
     }
 
     private boolean isErrorOrIrrelevant(String line) {
