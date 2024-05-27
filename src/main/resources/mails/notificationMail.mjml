@@ -1,0 +1,39 @@
+<mjml>
+    <mj-head>
+        <mj-title>Someone sent you a link</mj-title>
+        <mj-font name="Inter" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap"></mj-font>
+    </mj-head>
+    <mj-body>
+      <mj-container background-color="#fff" width="720">
+        <mj-section background-color="#000" padding="24">
+            <mj-column>
+            <mj-text align="center" color="#fff" font-family="Inter" font-size="21" font-weight="600" letter-spacing="12">linkr</mj-text>
+          </mj-column>
+        </mj-section>
+            <mj-section background-color="#fff" padding-top="42px">
+            <mj-column>
+                <mj-text font-family="Inter" font-size="21" color="#101C39">
+                    Someone shared a link with you.
+                </mj-text>
+              <mj-text font-family="Inter" line-height="21px" color="#718096">
+                Hey there!
+              </mj-text>
+              <mj-text font-family="Inter" line-height="21px" color="#718096">
+                A stranger sent a link to your email address <b>{{ email }}</b>. While it is normally a bad idea to click on a link in an email by an unknown source, this link is totally
+                safe (probably). So why not find out yourself by clicking the button below:
+              </mj-text>
+              <mj-button font-family="Inter" font-weight="600" align="left" background-color="#111" color="#fff" href="{{ body }}">
+                        Open link
+              </mj-button>
+              <mj-text font-family="Inter" font-size="12" line-height="18px" color="#aab2bd">
+                If you are not able to click a simple button, just copy this link: {{ url }}
+              </mj-text>
+              <mj-divider border-width="2" border-color="#ebeef2"></mj-divider>
+              <mj-text font-family="Inter" line-height="21px" color="#718096" align="center">
+                Sent with <b>linkr</b>, the ultimate phishing tool!
+              </mj-text>
+            </mj-column>
+        </mj-section>
+      </mj-container>
+    </mj-body>
+</mjml>

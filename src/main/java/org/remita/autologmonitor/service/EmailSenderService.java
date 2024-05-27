@@ -1,28 +1,27 @@
 package org.remita.autologmonitor.service;
 
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
+import dev.ditsche.mailo.factory.MailBuilder;
+import dev.ditsche.mailo.provider.MailProvider;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class EmailSenderService {
 
-    private JavaMailSender mailSender;
+    private final MailProvider mailProvider;
 
-    public EmailSenderService(JavaMailSender mailSender) {
-        this.mailSender = mailSender;
+    public EmailSenderService(MailProvider mailProvider) {
+        this.mailProvider = mailProvider;
     }
 
-    public void sendEmail(String toEmail, String subject, String body) {
-        body = "This is what i am testing";
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("devwhenry@gmail.com");
-        message.setTo(toEmail);
-        message.setSubject(subject);
-        message.setText(body);
-
-        mailSender.send(message);
-
-        System.out.println("Email sent");
+    @Async
+    public void sendEmail(MailBuilder mailBuilder) {
+        if(mailProvider.send(mailBuilder))
+            log.info("Email sent successfully");
+        else
+            log.error("Error sending email..");
     }
+
 }
