@@ -5,6 +5,17 @@ spring:
     scheduling:
       pool:
         size: 10
+  mail:
+    host: smtp.gmail.com
+    port:
+    username: devwhenry@gmail.com
+    password: mrdl qzen quja xekx
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
 
 logging:
   file:
