@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1")
 public class LogErrorNotificationController {
 
     public final LogErrorNotificationService logErrorNotificationService;
@@ -19,7 +19,7 @@ public class LogErrorNotificationController {
 
     @GetMapping("/errorCheck")
     public ResponseEntity<String> errorCheck() {
-        logErrorNotificationService.performLogCheckOnFile();
+        logErrorNotificationService.performErrorCheck();
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body("Application for Error check is working");
