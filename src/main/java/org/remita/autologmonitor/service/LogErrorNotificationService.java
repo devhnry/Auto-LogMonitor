@@ -32,7 +32,8 @@ public class LogErrorNotificationService {
             for (File log : directoryListing) {
                 executorService.submit(() -> {
                     checkForError(
-                            performLogCheckOnFile(String.format("%s/%s", logDirectory, log.getName())));
+                            performLogCheckOnFile(String.format("%s/%s", logDirectory, log.getName())), log.getName());
+
                 });
             }
         } else {
@@ -49,6 +50,8 @@ public class LogErrorNotificationService {
         String currentTimestamp = null;
         List<String> currentLogLines = new ArrayList<>();
 
+
+
         try (BufferedReader reader = new BufferedReader(new FileReader(logFile))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -62,6 +65,11 @@ public class LogErrorNotificationService {
                         currentLogLines.clear();
                     }
                 }
+
+                //Add Empty space lines
+                if(line.equals(""))
+                    currentLogLines.add(line);
+
                 // Add log line to current log lines (not timestamp line)
                 currentLogLines.add(line);
             }
@@ -83,21 +91,21 @@ public class LogErrorNotificationService {
     }
 
     private static String extractTimestamp(String line) {
-        return line.split(" ")[0].split("\\.")[0];
+        return line.split(" ")[0];
     }
 
-    private static void checkForError(Map<String, List<String>> logEntries) {
+    private static void checkForError(Map<String, List<String>> logEntries, String filename) {
         for (Map.Entry<String, List<String>> entry : logEntries.entrySet()) {
 
             List<String> logs = entry.getValue();
             for(String line : logs) {
                 if(line.contains("ERROR") || line.contains("WARNING") || line.contains("EXCEPTION")){
-                    System.out.println("Timestamp: " + extractTimestamp(line));
-                    System.out.println("-------");
+                    System.out.println("Error occurred at Timestamp: " + extractTimestamp(line) + " on log file " + filename );
+                    System.out.println("\n#######Start#####\n");
                     for (String logLine : entry.getValue()) {
                         System.out.println(logLine);
                     }
-                    System.out.println("-------");
+                    System.out.println("\n#######End#####\n");
 
                 }
             }
