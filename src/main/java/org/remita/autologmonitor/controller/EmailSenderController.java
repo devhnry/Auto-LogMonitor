@@ -22,7 +22,7 @@ public class EmailSenderController {
     }
 
     @PostMapping("/notify")
-    public String sendMail(@RequestBody MailResponseDto mailResponseDto)throws MessagingException {
+    public String sendMail(@RequestBody MailResponseDto mailResponseDto) throws MessagingException {
         emailSenderService.sendMail(mailResponseDto);
         return "Email Sent Successfully.!";
     }

