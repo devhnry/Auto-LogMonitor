@@ -1,6 +1,8 @@
 package org.remita.autologmonitor.service;
 
+import jakarta.mail.MessagingException;
 import lombok.extern.slf4j.Slf4j;
+import org.remita.autologmonitor.dto.MailResponseDto;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -19,6 +21,12 @@ import java.util.concurrent.Executors;
 public class LogErrorNotificationService {
 
     private static final String logDirectory = "log";
+    private static EmailSenderService emailSenderService;
+    private String baseUrl = "";
+
+    public LogErrorNotificationService(EmailSenderService emailSenderService) {
+        this.emailSenderService = emailSenderService;
+    }
 
     public void performErrorCheck() {
         loopThroughLogDirectory();
@@ -31,8 +39,12 @@ public class LogErrorNotificationService {
         if (directoryListing != null) {
             for (File log : directoryListing) {
                 executorService.submit(() -> {
-                    checkForError(
-                            performLogCheckOnFile(String.format("%s/%s", logDirectory, log.getName())), log.getName());
+                    try {
+                        checkForError(
+                                performLogCheckOnFile(String.format("%s/%s", logDirectory, log.getName())), log.getName());
+                    } catch (MessagingException e) {
+                        throw new RuntimeException(e);
+                    }
 
                 });
             }
@@ -94,19 +106,22 @@ public class LogErrorNotificationService {
         return line.split(" ")[0];
     }
 
-    private static void checkForError(Map<String, List<String>> logEntries, String filename) {
+    private static void checkForError(Map<String, List<String>> logEntries, String filename) throws MessagingException {
         for (Map.Entry<String, List<String>> entry : logEntries.entrySet()) {
-
+            MailResponseDto responseDto = new MailResponseDto();
             List<String> logs = entry.getValue();
+            String details = null;
             for(String line : logs) {
                 if(line.contains("ERROR") || line.contains("WARNING") || line.contains("EXCEPTION")){
-                    System.out.println("Error occurred at Timestamp: " + extractTimestamp(line) + " on log file " + filename );
-                    System.out.println("\n#######Start#####\n");
+                    responseDto.setTitle("Error occurred at Timestamp: " + extractTimestamp(line) + " on log file " + filename );
+                    responseDto.setEmail("taiwo@systemspecscomng.onmicrosoft.com");
+                    responseDto.setSubject("Attention: Error occurred on " + filename);
                     for (String logLine : entry.getValue()) {
-                        System.out.println(logLine);
+                        details = logLine + "\n";
                     }
-                    System.out.println("\n#######End#####\n");
+                    responseDto.setBody("\n --------- \n" + details + "\n --------- \n");
 
+                    emailSenderService.sendMail(responseDto);
                 }
             }
         }
