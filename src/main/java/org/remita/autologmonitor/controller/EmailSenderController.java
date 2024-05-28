@@ -2,6 +2,7 @@ package org.remita.autologmonitor.controller;
 
 import dev.ditsche.mailo.MailAddress;
 import dev.ditsche.mailo.factory.MailBuilder;
+import jakarta.mail.MessagingException;
 import org.remita.autologmonitor.dto.MailResponseDto;
 import org.remita.autologmonitor.service.EmailSenderService;
 import org.springframework.http.ResponseEntity;
@@ -21,17 +22,9 @@ public class EmailSenderController {
     }
 
     @PostMapping("/notify")
-    public ResponseEntity<?> notifyDevops(@RequestBody MailResponseDto mailResponseDto) {
-        MailBuilder mailBuilder = MailBuilder.mjml()
-                .subject(mailResponseDto.getSubject())
-                .to(new MailAddress(mailResponseDto.getEmail()))
-                .from(new MailAddress("devwhenry@gmail.com"))
-                .param("email", mailResponseDto.getEmail())
-                .param("body", mailResponseDto.getBody())
-                .loadTemplate("notificationMail");
-
-        emailSenderService.sendEmail(mailBuilder);
-        return ResponseEntity.ok("Queued");
+    public String sendMail(@RequestBody MailResponseDto mailResponseDto)throws MessagingException {
+        emailSenderService.sendMail(mailResponseDto);
+        return "Email Sent Successfully.!";
     }
 
 }

@@ -7,6 +7,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MailResponseDto {
     private String subject;
-    private String email;
+    private String title;
     private String body;
 }
