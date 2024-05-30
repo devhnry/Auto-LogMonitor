@@ -114,7 +114,7 @@ public class LogErrorNotificationService {
             for(String line : logs) {
                 if(line.contains("ERROR") || line.contains("WARNING") || line.contains("EXCEPTION")){
                     responseDto.setTitle("Error occurred at Timestamp: " + extractTimestamp(line) + " on log file " + filename );
-                    responseDto.setEmail("taiwo@systemspecscomng.onmicrosoft.com");
+                    responseDto.setEmail("agbabiaka@systemspecs.com.ng");
                     responseDto.setSubject("Attention: Error occurred on " + filename);
                     for (String logLine : entry.getValue()) {
                         details = logLine + "\n";
