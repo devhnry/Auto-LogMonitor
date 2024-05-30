@@ -3,6 +3,8 @@ package org.remita.autologmonitor.service;
 import jakarta.mail.MessagingException;
 import lombok.extern.slf4j.Slf4j;
 import org.remita.autologmonitor.dto.MailResponseDto;
+import org.remita.autologmonitor.entity.Error;
+import org.remita.autologmonitor.repository.ErrorRepository;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -22,10 +24,12 @@ public class LogErrorNotificationService {
 
     private static final String logDirectory = "log";
     private static EmailSenderService emailSenderService;
+    private final ErrorRepository errorRepository;
     private String baseUrl = "";
 
-    public LogErrorNotificationService(EmailSenderService emailSenderService) {
+    public LogErrorNotificationService(EmailSenderService emailSenderService, ErrorRepository errorRepository) {
         this.emailSenderService = emailSenderService;
+        this.errorRepository = errorRepository;
     }
 
     public void performErrorCheck() {
@@ -107,19 +111,28 @@ public class LogErrorNotificationService {
     }
 
     private static void checkForError(Map<String, List<String>> logEntries, String filename) throws MessagingException {
+        Error error = new Error();
         for (Map.Entry<String, List<String>> entry : logEntries.entrySet()) {
             MailResponseDto responseDto = new MailResponseDto();
             List<String> logs = entry.getValue();
             String details = null;
+            String message = null;
             for(String line : logs) {
                 if(line.contains("ERROR") || line.contains("WARNING") || line.contains("EXCEPTION")){
-                    responseDto.setTitle("Error occurred at Timestamp: " + extractTimestamp(line) + " on log file " + filename );
+                    message = "Error occurred at Timestamp: " + extractTimestamp(line) + " on log file " + filename;
+                    responseDto.setTitle(message);
                     responseDto.setEmail("agbabiaka@systemspecs.com.ng");
                     responseDto.setSubject("Attention: Error occurred on " + filename);
                     for (String logLine : entry.getValue()) {
                         details = logLine + "\n";
                     }
                     responseDto.setBody("\n --------- \n" + details + "\n --------- \n");
+
+                    error.setDetails(details);
+                    error.setMessage(message);
+                    error.setSolution("");
+                    error.setTimestamp(extractTimestamp(line));
+                    error.setStatus(false);
 
                     emailSenderService.sendMail(responseDto);
                 }
