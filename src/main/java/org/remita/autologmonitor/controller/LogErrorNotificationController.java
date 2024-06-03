@@ -22,6 +22,6 @@ public class LogErrorNotificationController {
         logErrorNotificationService.performErrorCheck();
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body("Application for Error check is working");
+                .body("Application for LogError check is working");
     }
 }

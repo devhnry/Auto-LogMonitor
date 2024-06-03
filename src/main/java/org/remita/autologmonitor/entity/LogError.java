@@ -3,12 +3,10 @@ package org.remita.autologmonitor.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDateTime;
-
 @Entity
 @Data @Getter @Setter @ToString
 @Table(name = "ErrorResponse")
-public class Error {
+public class LogError {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

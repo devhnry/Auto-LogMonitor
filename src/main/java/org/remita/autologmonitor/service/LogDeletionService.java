@@ -41,7 +41,7 @@ public class LogDeletionService {
                 });
             }
         } else {
-            log.info("Error Reading Log File");
+            log.info("LogError Reading Log File");
         }
     }
 
@@ -116,7 +116,7 @@ public class LogDeletionService {
                 line.contains("org.") || line.contains("jakarta.") ||
                 line.contains("java.base/") ||
                 line.contains("Caused by") ||
-                line.contains("common frames") || line.startsWith("Error")
+                line.contains("common frames") || line.startsWith("LogError")
                 || line.contains("Consider defining")
                 || line.contains("Action");
     }
