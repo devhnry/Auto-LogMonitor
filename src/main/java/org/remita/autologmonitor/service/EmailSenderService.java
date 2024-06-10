@@ -26,7 +26,7 @@ public class EmailSenderService {
         Context context = new Context();
         context.setVariable("response", mailResponseDto);
 
-        String process = templateEngine.process("LogError", context);
+        String process = templateEngine.process("Error", context);
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(mimeMessage);
         helper.setSubject("Attention: " + mailResponseDto.getSubject() );
