@@ -1,6 +1,9 @@
 package org.remita.autologmonitor.service;
 
+import jakarta.mail.MessagingException;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.remita.autologmonitor.dto.MailResponseDto;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -13,17 +16,33 @@ import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Service
-@Slf4j
+@Service @Slf4j @AllArgsConstructor
 public class LogDeletionService {
     private static final String logDirectory = "log";
+    private final EmailSenderService emailSenderService;
 
-    public void deleteLogs(){
+    public void deleteLogs() throws MessagingException {
         System.out.println("Checking log directory: " + logDirectory);
-        loopThroughLogDirectory();
+        boolean processComplete = loopThroughLogDirectory();
+        sendMailToDevOps(processComplete);
     }
 
-    private void loopThroughLogDirectory() {
+    private void sendMailToDevOps(boolean processComplete) throws MessagingException {
+        MailResponseDto responseDto = new MailResponseDto();
+        responseDto.setTitle("Log Deletion Service");
+        responseDto.setEmail("taiwoh782@gmail.com");
+        responseDto.setSubject("Deletion of Logs older than 7 days.");
+        responseDto.setBody("Logs have been successfully deleted");
+
+        if (processComplete) {
+            emailSenderService.sendMail(responseDto);
+        }else{
+            responseDto.setBody("Error processing log files");
+            emailSenderService.sendMail(responseDto);
+        }
+    }
+
+    private boolean loopThroughLogDirectory() {
         ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
         File dir = new File(logDirectory);
@@ -34,13 +53,18 @@ public class LogDeletionService {
                     try {
                         performLogCheckOnFile("log/" + log.getName());
                     } catch (IOException e) {
-                        throw new RuntimeException(e);
+                        throw new RuntimeException(e.getMessage());
                     }
                 });
             }
+            executorService.shutdown();
+            if(executorService.isShutdown()){
+                return true;
+            }
         } else {
-            log.info("LogError Reading Log File");
+            log.info("Error Reading Log File");
         }
+        return false;
     }
 
     private void performLogCheckOnFile(String fileName) throws IOException{
@@ -60,6 +84,7 @@ public class LogDeletionService {
                 try {
                     String timeStamp =  "";
                     for(String log : logs){
+                        if(log.equals("")) continue;
                         if(isTimestampLine(log)){
                             timeStamp = extractTimestamp(log);
                             lastCurrentTimestamp = timeStamp;

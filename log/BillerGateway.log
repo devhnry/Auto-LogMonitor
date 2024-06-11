@@ -1,0 +1,557 @@
+2024-06-10T16:30:36.099+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 15922 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
+2024-06-10T16:30:36.112+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-06-10T16:30:36.152+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-impl-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-core.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/angus-activation.jar
+2024-06-10T16:30:36.152+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-10T16:30:36.152+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-10T16:30:37.252+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
+2024-06-10T16:30:37.262+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-10T16:30:37.262+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-10T16:30:37.294+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-10T16:30:37.294+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1141 ms
+2024-06-10T16:30:37.846+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-10T16:30:37.851+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-06-10T16:30:37.894+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9100 (http) with context path ''
+2024-06-10T16:30:37.907+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Started AutoLogMonitorApplication in 2.128 seconds (process running for 2.785)
+2024-06-10T16:30:38.624+01:00  INFO 15922 --- [DevOpsAutomation] [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-10T16:30:38.624+01:00  INFO 15922 --- [DevOpsAutomation] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-10T16:30:38.625+01:00  INFO 15922 --- [DevOpsAutomation] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-06-10T16:30:46.493+01:00  INFO 15922 --- [DevOpsAutomation] [http-nio-9100-exec-1] o.r.a.s.LogErrorNotificationService      : BillerService.log
+2024-06-10T16:30:46.494+01:00  INFO 15922 --- [DevOpsAutomation] [http-nio-9100-exec-1] o.r.a.s.LogErrorNotificationService      : service.log
+2024-06-10T16:31:09.272+01:00  INFO 15922 --- [DevOpsAutomation] [http-nio-9100-exec-3] o.r.a.s.LogErrorNotificationService      : BillerService.log
+2024-06-10T16:31:09.272+01:00  INFO 15922 --- [DevOpsAutomation] [http-nio-9100-exec-3] o.r.a.s.LogErrorNotificationService      : service.log
+2024-06-10T16:33:49.584+01:00  INFO 15922 --- [DevOpsAutomation] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2024-06-10T16:33:49.785+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 15922 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
+2024-06-10T16:33:49.803+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-06-10T16:33:50.509+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
+2024-06-10T16:33:50.511+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-10T16:33:50.511+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-10T16:33:50.525+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-10T16:33:50.525+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 717 ms
+2024-06-10T16:33:50.778+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-10T16:33:50.782+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-06-10T16:33:50.801+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9100 (http) with context path ''
+2024-06-10T16:33:50.815+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Started AutoLogMonitorApplication in 1.06 seconds (process running for 195.688)
+2024-06-10T16:33:50.818+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-06-10T16:33:52.193+01:00  INFO 15922 --- [DevOpsAutomation] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2024-06-10T16:33:52.305+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 15922 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
+2024-06-10T16:33:52.305+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-06-10T16:33:52.652+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
+2024-06-10T16:33:52.653+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-10T16:33:52.653+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-10T16:33:52.662+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-10T16:33:52.663+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 354 ms
+2024-06-10T16:33:52.852+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-10T16:33:52.856+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-06-10T16:33:52.871+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9100 (http) with context path ''
+2024-06-10T16:33:52.881+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Started AutoLogMonitorApplication in 0.602 seconds (process running for 197.753)
+2024-06-10T16:33:52.883+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-06-10T16:34:25.754+01:00  INFO 15922 --- [DevOpsAutomation] [http-nio-9100-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-10T16:34:25.755+01:00  INFO 15922 --- [DevOpsAutomation] [http-nio-9100-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-10T16:34:25.756+01:00  INFO 15922 --- [DevOpsAutomation] [http-nio-9100-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-06-10T16:35:09.148+01:00  INFO 15922 --- [DevOpsAutomation] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-06-10T16:35:09.242+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 15922 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
+2024-06-10T16:35:09.242+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-06-10T16:35:09.928+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
+2024-06-10T16:35:09.929+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-10T16:35:09.929+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-10T16:35:09.940+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-10T16:35:09.940+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 693 ms
+2024-06-10T16:35:10.117+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-10T16:35:10.120+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-06-10T16:35:10.135+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9100 (http) with context path ''
+2024-06-10T16:35:10.145+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Started AutoLogMonitorApplication in 0.934 seconds (process running for 275.016)
+2024-06-10T16:35:10.148+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-06-10T16:36:28.427+01:00  INFO 15922 --- [DevOpsAutomation] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-06-10T16:36:28.492+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 15922 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
+2024-06-10T16:36:28.492+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-06-10T16:36:28.786+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
+2024-06-10T16:36:28.787+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-10T16:36:28.787+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-10T16:36:28.796+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-10T16:36:28.796+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 303 ms
+2024-06-10T16:36:28.929+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-10T16:36:28.931+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-06-10T16:36:28.941+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9100 (http) with context path ''
+2024-06-10T16:36:28.948+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Started AutoLogMonitorApplication in 0.473 seconds (process running for 353.88)
+2024-06-10T16:36:28.966+01:00  INFO 15922 --- [DevOpsAutomation] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-06-10T16:36:53.735+01:00  INFO 16054 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 16054 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
+2024-06-10T16:36:53.737+01:00  INFO 16054 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-06-10T16:36:53.773+01:00  INFO 16054 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-impl-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-core.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/angus-activation.jar
+2024-06-10T16:36:53.773+01:00  INFO 16054 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-10T16:36:53.773+01:00  INFO 16054 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-10T16:36:55.048+01:00  INFO 16054 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
+2024-06-10T16:36:55.057+01:00  INFO 16054 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-10T16:36:55.057+01:00  INFO 16054 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-10T16:36:55.092+01:00  INFO 16054 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-10T16:36:55.092+01:00  INFO 16054 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1319 ms
+2024-06-10T16:36:55.752+01:00  INFO 16054 --- [DevOpsAutomation] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-10T16:36:55.758+01:00  INFO 16054 --- [DevOpsAutomation] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-06-10T16:36:55.808+01:00  INFO 16054 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9100 (http) with context path ''
+2024-06-10T16:36:55.824+01:00  INFO 16054 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Started AutoLogMonitorApplication in 2.441 seconds (process running for 3.167)
+2024-06-10T16:36:56.376+01:00  INFO 16054 --- [DevOpsAutomation] [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-10T16:36:56.376+01:00  INFO 16054 --- [DevOpsAutomation] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-10T16:36:56.378+01:00  INFO 16054 --- [DevOpsAutomation] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-06-10T16:37:18.240+01:00  INFO 16054 --- [DevOpsAutomation] [pool-2-thread-2] o.r.a.s.LogErrorNotificationService      : Sending Mails
+2024-06-10T16:37:18.269+01:00  INFO 16054 --- [DevOpsAutomation] [pool-2-thread-1] o.r.a.s.LogErrorNotificationService      : Sending Mails
+2024-06-10T16:40:38.791+01:00  INFO 16111 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 16111 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
+2024-06-10T16:40:38.792+01:00  INFO 16111 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-06-10T16:40:38.825+01:00  INFO 16111 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-impl-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-core.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/angus-activation.jar
+2024-06-10T16:40:38.825+01:00  INFO 16111 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-10T16:40:38.825+01:00  INFO 16111 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-10T16:40:39.907+01:00  INFO 16111 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
+2024-06-10T16:40:39.915+01:00  INFO 16111 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-10T16:40:39.916+01:00  INFO 16111 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-10T16:40:39.947+01:00  INFO 16111 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-10T16:40:39.947+01:00  INFO 16111 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1122 ms
+2024-06-10T16:40:40.520+01:00  INFO 16111 --- [DevOpsAutomation] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-10T16:40:40.525+01:00  INFO 16111 --- [DevOpsAutomation] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-06-10T16:40:40.571+01:00  INFO 16111 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9100 (http) with context path ''
+2024-06-10T16:40:40.584+01:00  INFO 16111 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Started AutoLogMonitorApplication in 2.124 seconds (process running for 2.81)
+2024-06-10T16:40:41.214+01:00  INFO 16111 --- [DevOpsAutomation] [RMI TCP Connection(3)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-10T16:40:41.222+01:00  INFO 16111 --- [DevOpsAutomation] [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-10T16:40:41.225+01:00  INFO 16111 --- [DevOpsAutomation] [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-06-10T16:40:48.064+01:00  INFO 16111 --- [DevOpsAutomation] [pool-2-thread-2] o.r.a.s.LogErrorNotificationService      : Sending Mails
+2024-06-10T16:41:22.202+01:00  INFO 16111 --- [DevOpsAutomation] [pool-2-thread-1] o.r.a.s.LogErrorNotificationService      : Sending Mails
+2024-06-10T16:41:37.992+01:00  INFO 16125 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 16125 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
+2024-06-10T16:41:37.993+01:00  INFO 16125 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-06-10T16:41:38.027+01:00  INFO 16125 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-impl-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-core.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/angus-activation.jar
+2024-06-10T16:41:38.027+01:00  INFO 16125 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-10T16:41:38.027+01:00  INFO 16125 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-10T16:41:39.264+01:00  INFO 16125 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
+2024-06-10T16:41:39.275+01:00  INFO 16125 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-10T16:41:39.276+01:00  INFO 16125 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-10T16:41:39.311+01:00  INFO 16125 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-10T16:41:39.311+01:00  INFO 16125 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1284 ms
+2024-06-10T16:41:40.227+01:00  INFO 16125 --- [DevOpsAutomation] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-10T16:41:40.235+01:00  INFO 16125 --- [DevOpsAutomation] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-06-10T16:41:40.300+01:00  INFO 16125 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9100 (http) with context path ''
+2024-06-10T16:41:40.319+01:00  INFO 16125 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Started AutoLogMonitorApplication in 2.688 seconds (process running for 3.433)
+2024-06-10T16:41:40.924+01:00  INFO 16125 --- [DevOpsAutomation] [RMI TCP Connection(4)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-10T16:41:40.925+01:00  INFO 16125 --- [DevOpsAutomation] [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-10T16:41:40.926+01:00  INFO 16125 --- [DevOpsAutomation] [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-06-10T16:41:43.801+01:00  INFO 16125 --- [DevOpsAutomation] [pool-2-thread-2] o.r.a.s.LogErrorNotificationService      : Sending Mails
+2024-06-10T16:41:58.733+01:00  INFO 16125 --- [DevOpsAutomation] [pool-2-thread-1] o.r.a.s.LogErrorNotificationService      : Sending Mails
+2024-06-10T16:42:40.397+01:00  INFO 16139 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 16139 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
+2024-06-10T16:42:40.399+01:00  INFO 16139 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-06-10T16:42:40.440+01:00  INFO 16139 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-impl-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-core.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/angus-activation.jar
+2024-06-10T16:42:40.440+01:00  INFO 16139 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-10T16:42:40.440+01:00  INFO 16139 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-10T16:42:41.530+01:00  INFO 16139 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
+2024-06-10T16:42:41.539+01:00  INFO 16139 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-10T16:42:41.539+01:00  INFO 16139 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-10T16:42:41.574+01:00  INFO 16139 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-10T16:42:41.574+01:00  INFO 16139 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1133 ms
+2024-06-10T16:42:42.162+01:00  INFO 16139 --- [DevOpsAutomation] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-10T16:42:42.167+01:00  INFO 16139 --- [DevOpsAutomation] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-06-10T16:42:42.214+01:00  INFO 16139 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9100 (http) with context path ''
+2024-06-10T16:42:42.227+01:00  INFO 16139 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Started AutoLogMonitorApplication in 2.166 seconds (process running for 3.087)
+2024-06-10T16:42:42.692+01:00  INFO 16139 --- [DevOpsAutomation] [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-10T16:42:42.692+01:00  INFO 16139 --- [DevOpsAutomation] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-10T16:42:42.694+01:00  INFO 16139 --- [DevOpsAutomation] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-06-10T16:43:19.976+01:00  INFO 16139 --- [DevOpsAutomation] [pool-2-thread-2] o.r.a.s.LogErrorNotificationService      : Sending Mails
+2024-06-10T16:43:28.157+01:00  INFO 16139 --- [DevOpsAutomation] [pool-2-thread-1] o.r.a.s.LogErrorNotificationService      : Sending Mails
+2024-06-10T16:44:10.150+01:00  INFO 16158 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 16158 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
+2024-06-10T16:44:10.151+01:00  INFO 16158 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-06-10T16:44:10.186+01:00  INFO 16158 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-impl-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-core.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/angus-activation.jar
+2024-06-10T16:44:10.186+01:00  INFO 16158 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-10T16:44:10.186+01:00  INFO 16158 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-10T16:44:11.295+01:00  INFO 16158 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
+2024-06-10T16:44:11.304+01:00  INFO 16158 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-10T16:44:11.304+01:00  INFO 16158 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-10T16:44:11.337+01:00  INFO 16158 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-10T16:44:11.338+01:00  INFO 16158 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1152 ms
+2024-06-10T16:44:12.002+01:00  INFO 16158 --- [DevOpsAutomation] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-10T16:44:12.008+01:00  INFO 16158 --- [DevOpsAutomation] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-06-10T16:44:12.052+01:00  INFO 16158 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9100 (http) with context path ''
+2024-06-10T16:44:12.065+01:00  INFO 16158 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Started AutoLogMonitorApplication in 2.321 seconds (process running for 3.765)
+2024-06-10T16:44:12.737+01:00  INFO 16158 --- [DevOpsAutomation] [RMI TCP Connection(3)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-10T16:44:12.737+01:00  INFO 16158 --- [DevOpsAutomation] [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-10T16:44:12.739+01:00  INFO 16158 --- [DevOpsAutomation] [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-06-10T16:44:22.954+01:00  INFO 16158 --- [DevOpsAutomation] [pool-2-thread-2] o.r.a.s.LogErrorNotificationService      : Sending Mails
+2024-06-10T16:44:28.313+01:00  INFO 16158 --- [DevOpsAutomation] [pool-2-thread-1] o.r.a.s.LogErrorNotificationService      : Sending Mails
+2024-06-10T16:48:28.451+01:00  INFO 16224 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 16224 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
+2024-06-10T16:48:28.452+01:00  INFO 16224 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-06-10T16:48:28.486+01:00  INFO 16224 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-impl-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-core.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/angus-activation.jar
+2024-06-10T16:48:28.487+01:00  INFO 16224 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-10T16:48:28.487+01:00  INFO 16224 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-10T16:48:29.617+01:00  INFO 16224 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
+2024-06-10T16:48:29.627+01:00  INFO 16224 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-10T16:48:29.627+01:00  INFO 16224 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-10T16:48:29.658+01:00  INFO 16224 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-10T16:48:29.658+01:00  INFO 16224 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1171 ms
+2024-06-10T16:48:30.295+01:00  INFO 16224 --- [DevOpsAutomation] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-10T16:48:30.300+01:00  INFO 16224 --- [DevOpsAutomation] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-06-10T16:48:30.347+01:00  INFO 16224 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9100 (http) with context path ''
+2024-06-10T16:48:30.360+01:00  INFO 16224 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Started AutoLogMonitorApplication in 2.297 seconds (process running for 3.001)
+2024-06-10T16:48:30.795+01:00  INFO 16224 --- [DevOpsAutomation] [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-10T16:48:30.795+01:00  INFO 16224 --- [DevOpsAutomation] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-10T16:48:30.796+01:00  INFO 16224 --- [DevOpsAutomation] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-06-10T16:48:51.672+01:00  INFO 16224 --- [DevOpsAutomation] [pool-2-thread-2] o.r.a.s.LogErrorNotificationService      : Sending Mails
+2024-06-10T16:48:56.634+01:00  INFO 16224 --- [DevOpsAutomation] [pool-2-thread-1] o.r.a.s.LogErrorNotificationService      : Sending Mails
+2024-06-10T16:51:56.123+01:00  INFO 16224 --- [DevOpsAutomation] [pool-2-thread-1] o.r.a.s.LogErrorNotificationService      : Mail Receiver being set
+2024-06-10T16:53:00.011+01:00  INFO 16224 --- [DevOpsAutomation] [pool-2-thread-1] o.r.a.s.LogErrorNotificationService      : Calling Email Sender Service
+2024-06-10T16:53:04.260+01:00  INFO 16224 --- [DevOpsAutomation] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2024-06-10T16:53:04.463+01:00  INFO 16224 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 16224 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
+2024-06-10T16:53:04.463+01:00  INFO 16224 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-06-10T16:53:05.159+01:00  INFO 16224 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
+2024-06-10T16:53:05.160+01:00  INFO 16224 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-10T16:53:05.161+01:00  INFO 16224 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-10T16:53:05.272+01:00  INFO 16224 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-10T16:53:05.272+01:00  INFO 16224 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 805 ms
+2024-06-10T16:53:05.369+01:00  INFO 16224 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-06-10T16:53:05.383+01:00  INFO 16224 --- [DevOpsAutomation] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger :
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-06-10T16:53:05.435+01:00 ERROR 16224 --- [DevOpsAutomation] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'logErrorNotificationController': Resolution of declared constructors on bean Class [org.remita.autologmonitor.controller.LogErrorNotificationController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@2fcb4f8] failed
+at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:383) ~[spring-beans-6.1.6.jar:6.1.6]
+at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1294) ~[spring-beans-6.1.6.jar:6.1.6]
+at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1189) ~[spring-beans-6.1.6.jar:6.1.6]
+at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.6.jar:6.1.6]
+at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.6.jar:6.1.6]
+at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.1.6.jar:6.1.6]
+at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.6.jar:6.1.6]
+at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.1.6.jar:6.1.6]
+at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.6.jar:6.1.6]
+at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.6.jar:6.1.6]
+at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:962) ~[spring-context-6.1.6.jar:6.1.6]
+at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624) ~[spring-context-6.1.6.jar:6.1.6]
+at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.2.5.jar:3.2.5]
+at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.2.5.jar:3.2.5]
+at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.2.5.jar:3.2.5]
+at org.springframework.boot.SpringApplication.run(SpringApplication.java:334) ~[spring-boot-3.2.5.jar:3.2.5]
+at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.5.jar:3.2.5]
+at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.5.jar:3.2.5]
+at org.remita.autologmonitor.AutoLogMonitorApplication.main(AutoLogMonitorApplication.java:11) ~[classes/:na]
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.2.5.jar:3.2.5]
+Caused by: java.lang.NoClassDefFoundError: org/remita/autologmonitor/service/LogErrorNotificationService
+at java.base/java.lang.Class.getDeclaredConstructors0(Native Method) ~[na:na]
+at java.base/java.lang.Class.privateGetDeclaredConstructors(Class.java:3549) ~[na:na]
+at java.base/java.lang.Class.getDeclaredConstructors(Class.java:2727) ~[na:na]
+at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:378) ~[spring-beans-6.1.6.jar:6.1.6]
+... 21 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.remita.autologmonitor.service.LogErrorNotificationService
+at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+at java.base/java.lang.Class.forName(Class.java:534) ~[na:na]
+at java.base/java.lang.Class.forName(Class.java:513) ~[na:na]
+at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.2.5.jar:3.2.5]
+at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+... 25 common frames omitted
+
+2024-06-10T16:53:22.989+01:00  INFO 16224 --- [DevOpsAutomation] [pool-2-thread-1] o.r.a.s.LogErrorNotificationService      : Mail Receiver being set
+2024-06-10T16:53:22.992+01:00  INFO 16224 --- [DevOpsAutomation] [pool-2-thread-1] o.r.a.s.LogErrorNotificationService      : Calling Email Sender Service
+
+java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load [templates/Error.html]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1373) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:971) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+at org.springframework.core.io.ClassPathResource.resolveURL(ClassPathResource.java:182) ~[spring-core-6.1.6.jar:6.1.6]
+at org.springframework.core.io.ClassPathResource.exists(ClassPathResource.java:156) ~[spring-core-6.1.6.jar:6.1.6]
+at org.thymeleaf.spring6.templateresource.SpringResourceTemplateResource.exists(SpringResourceTemplateResource.java:97) ~[thymeleaf-spring6-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+at org.thymeleaf.templateresolver.AbstractTemplateResolver.resolveTemplate(AbstractTemplateResolver.java:361) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:845) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1064) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1053) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+at org.remita.autologmonitor.service.EmailSenderService.sendMail(EmailSenderService.java:29) ~[classes/:na]
+at org.remita.autologmonitor.service.LogErrorNotificationService.sendMailToDevOps(LogErrorNotificationService.java:71) ~[classes/:na]
+at org.remita.autologmonitor.service.LogErrorNotificationService.lambda$loopThroughLogDirectory$0(LogErrorNotificationService.java:41) ~[classes/:na]
+at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
+at java.base/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:317) ~[na:na]
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java) ~[na:na]
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
+at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2024-06-10T16:53:32.497+01:00  INFO 16317 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 16317 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
+2024-06-10T16:53:32.499+01:00  INFO 16317 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-06-10T16:53:32.532+01:00  INFO 16317 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-impl-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-core.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/angus-activation.jar
+2024-06-10T16:53:32.532+01:00  INFO 16317 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-10T16:53:32.532+01:00  INFO 16317 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-10T16:53:33.613+01:00  INFO 16317 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
+2024-06-10T16:53:33.622+01:00  INFO 16317 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-10T16:53:33.622+01:00  INFO 16317 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-10T16:53:33.652+01:00  INFO 16317 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-10T16:53:33.653+01:00  INFO 16317 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1120 ms
+2024-06-10T16:53:34.229+01:00  INFO 16317 --- [DevOpsAutomation] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-10T16:53:34.234+01:00  INFO 16317 --- [DevOpsAutomation] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-06-10T16:53:34.278+01:00  INFO 16317 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9100 (http) with context path ''
+2024-06-10T16:53:34.291+01:00  INFO 16317 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Started AutoLogMonitorApplication in 2.129 seconds (process running for 2.795)
+2024-06-10T16:53:34.953+01:00  INFO 16317 --- [DevOpsAutomation] [RMI TCP Connection(1)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-10T16:53:34.954+01:00  INFO 16317 --- [DevOpsAutomation] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-10T16:53:34.957+01:00  INFO 16317 --- [DevOpsAutomation] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2024-06-10T16:54:05.175+01:00  INFO 16317 --- [DevOpsAutomation] [pool-2-thread-2] o.r.a.s.LogErrorNotificationService      : Sending Mails
+2024-06-10T16:54:05.177+01:00  INFO 16317 --- [DevOpsAutomation] [pool-2-thread-2] o.r.a.s.LogErrorNotificationService      : Mail Receiver being set
+2024-06-10T16:54:05.177+01:00  INFO 16317 --- [DevOpsAutomation] [pool-2-thread-2] o.r.a.s.LogErrorNotificationService      : Calling Email Sender Service
+2024-06-10T16:54:05.257+01:00  INFO 16317 --- [DevOpsAutomation] [pool-2-thread-1] o.r.a.s.LogErrorNotificationService      : Sending Mails
+2024-06-10T16:54:05.263+01:00  INFO 16317 --- [DevOpsAutomation] [pool-2-thread-1] o.r.a.s.LogErrorNotificationService      : Mail Receiver being set
+2024-06-10T16:54:05.263+01:00  INFO 16317 --- [DevOpsAutomation] [pool-2-thread-1] o.r.a.s.LogErrorNotificationService      : Calling Email Sender Service
+2024-06-10T16:54:07.653+01:00  INFO 16331 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 16331 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
+2024-06-10T16:54:07.655+01:00  INFO 16331 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-06-10T16:54:07.698+01:00  INFO 16331 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-impl-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-core.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/angus-activation.jar
+2024-06-10T16:54:07.698+01:00  INFO 16331 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-10T16:54:07.698+01:00  INFO 16331 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-10T16:54:09.088+01:00  INFO 16331 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
+2024-06-10T16:54:09.101+01:00  INFO 16331 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-10T16:54:09.101+01:00  INFO 16331 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-10T16:54:09.143+01:00  INFO 16331 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-10T16:54:09.143+01:00  INFO 16331 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1444 ms
+2024-06-10T16:54:09.733+01:00  INFO 16331 --- [DevOpsAutomation] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-10T16:54:09.739+01:00  INFO 16331 --- [DevOpsAutomation] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-06-10T16:54:09.785+01:00  INFO 16331 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9100 (http) with context path ''
+2024-06-10T16:54:09.798+01:00  INFO 16331 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Started AutoLogMonitorApplication in 2.502 seconds (process running for 3.345)
+2024-06-10T16:54:10.452+01:00  INFO 16331 --- [DevOpsAutomation] [RMI TCP Connection(1)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-10T16:54:10.453+01:00  INFO 16331 --- [DevOpsAutomation] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-10T16:54:10.454+01:00  INFO 16331 --- [DevOpsAutomation] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-06-10T16:54:17.252+01:00  INFO 16331 --- [DevOpsAutomation] [pool-2-thread-2] o.r.a.s.LogErrorNotificationService      : Sending Mails
+2024-06-10T16:54:17.252+01:00  INFO 16331 --- [DevOpsAutomation] [pool-2-thread-2] o.r.a.s.LogErrorNotificationService      : Mail Receiver being set
+2024-06-10T16:54:17.253+01:00  INFO 16331 --- [DevOpsAutomation] [pool-2-thread-2] o.r.a.s.LogErrorNotificationService      : Calling Email Sender Service
+2024-06-10T16:54:17.281+01:00  INFO 16331 --- [DevOpsAutomation] [pool-2-thread-1] o.r.a.s.LogErrorNotificationService      : Sending Mails
+2024-06-10T16:54:17.281+01:00  INFO 16331 --- [DevOpsAutomation] [pool-2-thread-1] o.r.a.s.LogErrorNotificationService      : Mail Receiver being set
+2024-06-10T16:54:17.281+01:00  INFO 16331 --- [DevOpsAutomation] [pool-2-thread-1] o.r.a.s.LogErrorNotificationService      : Calling Email Sender Service
+2024-06-10T16:54:19.797+01:00  INFO 16331 --- [DevOpsAutomation] [pool-2-thread-2] o.r.a.s.LogErrorNotificationService      : Mail Receiver being set
+2024-06-10T16:54:19.797+01:00  INFO 16331 --- [DevOpsAutomation] [pool-2-thread-2] o.r.a.s.LogErrorNotificationService      : Calling Email Sender Service
+2024-06-10T16:54:19.819+01:00  INFO 16331 --- [DevOpsAutomation] [pool-2-thread-1] o.r.a.s.LogErrorNotificationService      : Mail Receiver being set
+2024-06-10T16:54:19.820+01:00  INFO 16331 --- [DevOpsAutomation] [pool-2-thread-1] o.r.a.s.LogErrorNotificationService      : Calling Email Sender Service
+2024-06-10T16:54:22.305+01:00  INFO 16331 --- [DevOpsAutomation] [pool-2-thread-1] o.r.a.s.LogErrorNotificationService      : Mail Receiver being set
+2024-06-10T16:54:22.306+01:00  INFO 16331 --- [DevOpsAutomation] [pool-2-thread-1] o.r.a.s.LogErrorNotificationService      : Calling Email Sender Service
+2024-06-10T16:54:22.374+01:00  INFO 16331 --- [DevOpsAutomation] [pool-2-thread-2] o.r.a.s.LogErrorNotificationService      : Mail Receiver being set
+2024-06-10T16:54:22.374+01:00  INFO 16331 --- [DevOpsAutomation] [pool-2-thread-2] o.r.a.s.LogErrorNotificationService      : Calling Email Sender Service
+2024-06-10T16:54:24.607+01:00  INFO 16331 --- [DevOpsAutomation] [pool-2-thread-1] o.r.a.s.LogErrorNotificationService      : Mail Receiver being set
+2024-06-10T16:54:24.608+01:00  INFO 16331 --- [DevOpsAutomation] [pool-2-thread-1] o.r.a.s.LogErrorNotificationService      : Calling Email Sender Service
+2024-06-10T16:54:26.943+01:00  INFO 16331 --- [DevOpsAutomation] [pool-2-thread-1] o.r.a.s.LogErrorNotificationService      : Mail Receiver being set
+2024-06-10T16:54:26.944+01:00  INFO 16331 --- [DevOpsAutomation] [pool-2-thread-1] o.r.a.s.LogErrorNotificationService      : Calling Email Sender Service
+2024-06-10T16:58:04.637+01:00  INFO 16374 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 16374 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
+2024-06-10T16:58:04.639+01:00  INFO 16374 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-06-10T16:58:04.673+01:00  INFO 16374 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-impl-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-core.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/angus-activation.jar
+2024-06-10T16:58:04.673+01:00  INFO 16374 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-10T16:58:04.674+01:00  INFO 16374 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-10T16:58:05.742+01:00  INFO 16374 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
+2024-06-10T16:58:05.750+01:00  INFO 16374 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-10T16:58:05.750+01:00  INFO 16374 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-10T16:58:05.779+01:00  INFO 16374 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-10T16:58:05.779+01:00  INFO 16374 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1105 ms
+2024-06-10T16:58:06.332+01:00  INFO 16374 --- [DevOpsAutomation] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-10T16:58:06.338+01:00  INFO 16374 --- [DevOpsAutomation] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-06-10T16:58:06.387+01:00  INFO 16374 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9100 (http) with context path ''
+2024-06-10T16:58:06.401+01:00  INFO 16374 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Started AutoLogMonitorApplication in 2.168 seconds (process running for 3.004)
+2024-06-10T16:58:06.865+01:00  INFO 16374 --- [DevOpsAutomation] [RMI TCP Connection(3)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-10T16:58:06.865+01:00  INFO 16374 --- [DevOpsAutomation] [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-10T16:58:06.867+01:00  INFO 16374 --- [DevOpsAutomation] [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-06-10T16:58:11.521+01:00  INFO 16382 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 16382 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
+2024-06-10T16:58:11.523+01:00  INFO 16382 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-06-10T16:58:11.554+01:00  INFO 16382 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-impl-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-core.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/angus-activation.jar
+2024-06-10T16:58:11.554+01:00  INFO 16382 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-10T16:58:11.554+01:00  INFO 16382 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-10T16:58:12.602+01:00  INFO 16382 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
+2024-06-10T16:58:12.611+01:00  INFO 16382 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-10T16:58:12.611+01:00  INFO 16382 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-10T16:58:12.639+01:00  INFO 16382 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-10T16:58:12.639+01:00  INFO 16382 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1084 ms
+2024-06-10T16:58:13.167+01:00  INFO 16382 --- [DevOpsAutomation] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-10T16:58:13.172+01:00  INFO 16382 --- [DevOpsAutomation] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-06-10T16:58:13.218+01:00  INFO 16382 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9100 (http) with context path ''
+2024-06-10T16:58:13.251+01:00  INFO 16382 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Started AutoLogMonitorApplication in 2.05 seconds (process running for 2.692)
+2024-06-10T16:58:13.505+01:00  INFO 16382 --- [DevOpsAutomation] [RMI TCP Connection(1)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-10T16:58:13.505+01:00  INFO 16382 --- [DevOpsAutomation] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-10T16:58:13.507+01:00  INFO 16382 --- [DevOpsAutomation] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-06-10T17:00:00.014+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.017+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.013+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.018+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.018+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.018+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.018+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.018+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.018+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.018+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.019+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.019+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.019+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.019+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.019+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.019+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.019+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.019+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.020+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.020+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.020+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.020+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.020+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.020+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.020+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.021+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.021+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.018+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.021+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.021+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.021+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.021+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.021+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.021+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.021+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.022+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.022+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.022+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.022+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.022+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.022+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.022+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.022+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.023+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.023+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.023+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.022+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.023+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.023+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.024+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.023+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.025+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.025+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.025+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.025+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.025+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.026+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.026+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.026+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.026+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.026+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.026+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.026+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.026+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.027+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.027+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.027+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.027+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.027+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.027+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.027+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.027+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.028+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.028+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.028+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.028+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.025+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.028+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.028+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.028+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.028+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.028+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.028+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.028+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.028+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.028+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.029+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.029+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.029+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.029+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.029+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.029+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.029+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.030+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.030+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.030+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.030+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.030+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.030+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.030+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.030+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.030+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.030+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.030+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.031+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.031+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.031+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.031+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.030+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.031+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.031+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.031+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.031+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.031+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.032+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.032+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.032+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.032+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.033+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.033+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.033+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.033+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.031+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.033+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.033+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.034+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.034+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.034+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.034+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.034+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.034+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.034+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.035+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.035+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.035+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.035+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.035+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.035+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.035+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.036+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.036+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.036+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.036+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.036+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.036+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.036+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.036+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.036+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.037+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.037+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.037+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.037+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.037+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.037+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.037+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.037+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.038+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.041+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.041+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.041+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.037+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.041+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.041+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.041+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.042+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.042+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.042+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.042+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.042+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.041+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.043+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.043+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.050+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.050+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.051+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.051+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.051+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.051+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.051+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.051+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.051+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.051+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.052+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.052+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.052+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.052+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.052+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.052+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.052+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.052+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.052+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.052+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.052+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-4] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
+2024-06-10T17:00:00.052+01:00  INFO 16382 --- [DevOpsAutomation] [pool-3-thread-5] o.r.a.service.LogDeletionService         : Timestamp format error: Text '' could not be parsed at index 0
