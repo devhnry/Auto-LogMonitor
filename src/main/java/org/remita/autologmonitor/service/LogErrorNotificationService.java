@@ -4,6 +4,9 @@ import jakarta.mail.MessagingException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.remita.autologmonitor.dto.MailResponseDto;
+import org.remita.autologmonitor.entity.LogError;
+import org.remita.autologmonitor.entity.Status;
+import org.remita.autologmonitor.repository.LogErrorRepository;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -23,6 +26,7 @@ public class LogErrorNotificationService {
 
     private static final String logDirectory = "log";
     private final EmailSenderService emailSenderService;
+    private final LogErrorRepository logErrorRepository;
 
     public void performErrorCheck() {
         loopThroughLogDirectory();
@@ -52,6 +56,17 @@ public class LogErrorNotificationService {
         executorService.shutdown();
     }
 
+    private void saveErrorToDashboard(String msg, String details, String timestamp){
+        LogError error = new LogError();
+        error.setStatus(Status.PENDING);
+        error.setMessage(msg);
+        error.setDetails(details);
+        error.setTimeStamp(timestamp);
+        error.setSolution("");
+
+        logErrorRepository.save(error);
+    }
+
     private void sendMailToDevOps(Map<String, List<String>> logEntries, String filename) throws MessagingException {
         for (Map.Entry<String, List<String>> entry : logEntries.entrySet()) {
             MailResponseDto responseDto = new MailResponseDto();
@@ -66,8 +81,8 @@ public class LogErrorNotificationService {
             }
             responseDto.setBody("---------\n" + details + "\n---------");
 
-
             emailSenderService.sendMail(responseDto);
+            saveErrorToDashboard(message, details, extractTimeAndDate(entry.getKey()));
         }
     }
 
