@@ -10,4 +10,5 @@ public class AutoLogMonitorApplication {
     public static void main(String[] args) {
         SpringApplication.run(AutoLogMonitorApplication.class, args);
     }
+
 }

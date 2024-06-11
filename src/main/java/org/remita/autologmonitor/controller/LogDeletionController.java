@@ -1,5 +1,6 @@
 package org.remita.autologmonitor.controller;
 
+import jakarta.mail.MessagingException;
 import org.remita.autologmonitor.service.LogDeletionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,7 @@ public class LogDeletionController {
 
     @Scheduled(cron = "0 0 * * * *")
     @GetMapping("/delete")
-    public ResponseEntity<String> deleteLogsOlderThanSevenDays() throws IOException {
+    public ResponseEntity<String> deleteLogsOlderThanSevenDays() throws MessagingException {
         logDeletionService.deleteLogs();
         return ResponseEntity
                 .status(HttpStatus.OK)
