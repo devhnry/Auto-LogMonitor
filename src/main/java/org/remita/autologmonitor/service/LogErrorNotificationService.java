@@ -120,22 +120,33 @@ public class LogErrorNotificationService {
 
     private ArrayList<String> performAnalysisOnLines(String filePath){
         String timestamp = null;
-
-        ArrayList<String> logChunk = getNextChunkToAnalyse(timestamp, filePath);
         ArrayList<String> errorLines = new ArrayList<>();
 
-        String currentTimestamp, errorTimesStamp;
+        while (true) {
+            ArrayList<String> logChunk = getNextChunkToAnalyse(timestamp, filePath);
+            if (logChunk == null || logChunk.isEmpty()) {
+                break;
+            }
 
-        for(String line : logChunk){
-            if (isTimestampLine(line)) {
-                // Update current timestamp and error
-                currentTimestamp = extractTimestamp(line);
+            String currentTimestamp = null, errorTimesStamp = null;
+            String lastTimestamp = null;
 
-                // Check for Error and save where
-                if(line.contains("ERROR") || line.contains("WARN")){
-                    errorTimesStamp = currentTimestamp;
-                    errorLines.add(errorTimesStamp);
+            for (String line : logChunk) {
+                if (isTimestampLine(line)) {
+                    // Update current timestamp and error
+                    currentTimestamp = extractTimestamp(line);
+                    lastTimestamp = currentTimestamp;
+
+                    // Check for Error and save where
+                    if (line.contains("ERROR") || line.contains("WARN")) {
+                        errorTimesStamp = currentTimestamp;
+                        errorLines.add(errorTimesStamp);
+                    }
                 }
+            }
+            timestamp = lastTimestamp;
+            if (timestamp == null) {
+                break;
             }
         }
         return errorLines;
