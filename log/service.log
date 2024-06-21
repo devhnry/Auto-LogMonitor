@@ -1,596 +1,116 @@
-2024-06-11T10:27:41.037+01:00  INFO 22851 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 22851 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
-2024-06-11T10:27:41.039+01:00  INFO 22851 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
-2024-06-11T10:27:41.084+01:00  INFO 22851 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jaxb-core-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.activation-api.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.xml.bind-api.jar
-2024-06-11T10:27:41.084+01:00  INFO 22851 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-impl-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-core.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/angus-activation.jar
-2024-06-11T10:27:41.084+01:00  INFO 22851 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-11T10:27:41.084+01:00  INFO 22851 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-11T10:27:42.428+01:00  INFO 22851 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
-2024-06-11T10:27:42.440+01:00  INFO 22851 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-06-11T10:27:42.441+01:00  INFO 22851 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-06-11T10:27:42.481+01:00  INFO 22851 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-06-11T10:27:42.482+01:00  INFO 22851 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1397 ms
-2024-06-11T10:27:42.667+01:00  WARN 22851 --- [DevOpsAutomation] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'logErrorNotificationController' defined in file [/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes/org/remita/autologmonitor/controller/LogErrorNotificationController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'logErrorNotificationService' defined in file [/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes/org/remita/autologmonitor/service/LogErrorNotificationService.class]: Unsatisfied dependency expressed through constructor parameter 1: No qualifying bean of type 'org.remita.autologmonitor.repository.LogErrorRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
-2024-06-11T10:27:42.669+01:00  INFO 22851 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2024-06-11T10:27:42.691+01:00  INFO 22851 --- [DevOpsAutomation] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-11T10:27:42.714+01:00 ERROR 22851 --- [DevOpsAutomation] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Parameter 1 of constructor in org.remita.autologmonitor.service.LogErrorNotificationService required a bean of type 'org.remita.autologmonitor.repository.LogErrorRepository' that could not be found.
-
-
-Action:
-
-Consider defining a bean of type 'org.remita.autologmonitor.repository.LogErrorRepository' in your configuration.
-
-2024-06-11T10:29:50.852+01:00  INFO 22887 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 22887 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
-2024-06-11T10:29:50.854+01:00  INFO 22887 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
-2024-06-11T10:29:50.890+01:00  INFO 22887 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jaxb-core-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.activation-api.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.xml.bind-api.jar
-2024-06-11T10:29:50.890+01:00  INFO 22887 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-impl-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-core.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/angus-activation.jar
-2024-06-11T10:29:50.890+01:00  INFO 22887 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-11T10:29:50.890+01:00  INFO 22887 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-11T10:29:52.209+01:00  INFO 22887 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
-2024-06-11T10:29:52.219+01:00  INFO 22887 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-06-11T10:29:52.219+01:00  INFO 22887 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-06-11T10:29:52.251+01:00  INFO 22887 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-06-11T10:29:52.251+01:00  INFO 22887 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1361 ms
-2024-06-11T10:29:52.436+01:00  WARN 22887 --- [DevOpsAutomation] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'logErrorNotificationController' defined in file [/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes/org/remita/autologmonitor/controller/LogErrorNotificationController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'logErrorNotificationService' defined in file [/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes/org/remita/autologmonitor/service/LogErrorNotificationService.class]: Unsatisfied dependency expressed through constructor parameter 1: No qualifying bean of type 'org.remita.autologmonitor.repository.LogErrorRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
-2024-06-11T10:29:52.438+01:00  INFO 22887 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2024-06-11T10:29:52.456+01:00  INFO 22887 --- [DevOpsAutomation] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-11T10:29:52.481+01:00 ERROR 22887 --- [DevOpsAutomation] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Parameter 1 of constructor in org.remita.autologmonitor.service.LogErrorNotificationService required a bean of type 'org.remita.autologmonitor.repository.LogErrorRepository' that could not be found.
-
-
-Action:
-
-Consider defining a bean of type 'org.remita.autologmonitor.repository.LogErrorRepository' in your configuration.
-
-2024-06-11T10:32:22.802+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 22958 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
-2024-06-11T10:32:22.804+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
-2024-06-11T10:32:22.839+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jaxb-core-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.activation-api.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.xml.bind-api.jar
-2024-06-11T10:32:22.840+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-impl-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-core.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/angus-activation.jar
-2024-06-11T10:32:22.840+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-11T10:32:22.840+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-11T10:32:24.035+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
-2024-06-11T10:32:24.046+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-06-11T10:32:24.046+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-06-11T10:32:24.080+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-06-11T10:32:24.080+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1240 ms
-2024-06-11T10:32:24.660+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2024-06-11T10:32:24.666+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2024-06-11T10:32:24.716+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9100 (http) with context path ''
-2024-06-11T10:32:24.727+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Started AutoLogMonitorApplication in 2.28 seconds (process running for 2.956)
-2024-06-11T10:32:25.222+01:00  INFO 22958 --- [DevOpsAutomation] [RMI TCP Connection(3)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-06-11T10:32:25.243+01:00  INFO 22958 --- [DevOpsAutomation] [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-06-11T10:32:25.244+01:00  INFO 22958 --- [DevOpsAutomation] [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-06-11T10:35:12.341+01:00  INFO 22958 --- [DevOpsAutomation] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
-2024-06-11T10:35:12.531+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 22958 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
-2024-06-11T10:35:12.531+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
-2024-06-11T10:35:12.535+01:00  WARN 22958 --- [DevOpsAutomation] [restartedMain] ionWarningsApplicationContextInitializer : 
-
-** WARNING ** : Your ApplicationContext is unlikely to start due to a @ComponentScan of the default package.
-
-
-2024-06-11T10:35:12.942+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
-2024-06-11T10:35:12.943+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-06-11T10:35:12.943+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-06-11T10:35:12.957+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-06-11T10:35:12.958+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 423 ms
-2024-06-11T10:35:13.014+01:00  WARN 22958 --- [DevOpsAutomation] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'logErrorNotificationController' defined in file [/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes/org/remita/autologmonitor/controller/LogErrorNotificationController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'logErrorNotificationService' defined in file [/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes/org/remita/autologmonitor/service/LogErrorNotificationService.class]: Unsatisfied dependency expressed through constructor parameter 1: No qualifying bean of type 'org.remita.autologmonitor.repository.LogErrorRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
-2024-06-11T10:35:13.015+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2024-06-11T10:35:13.024+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-11T10:35:13.048+01:00 ERROR 22958 --- [DevOpsAutomation] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Parameter 1 of constructor in org.remita.autologmonitor.service.LogErrorNotificationService required a bean of type 'org.remita.autologmonitor.repository.LogErrorRepository' that could not be found.
-
-
-Action:
-
-Consider defining a bean of type 'org.remita.autologmonitor.repository.LogErrorRepository' in your configuration.
-
-2024-06-11T10:35:14.489+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 22958 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
-2024-06-11T10:35:14.489+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
-2024-06-11T10:35:14.494+01:00  WARN 22958 --- [DevOpsAutomation] [restartedMain] ionWarningsApplicationContextInitializer : 
-
-** WARNING ** : Your ApplicationContext is unlikely to start due to a @ComponentScan of the default package.
-
-
-2024-06-11T10:35:14.752+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
-2024-06-11T10:35:14.752+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-06-11T10:35:14.752+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-06-11T10:35:14.761+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
-2024-06-11T10:35:14.761+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 268 ms
-2024-06-11T10:35:14.795+01:00  WARN 22958 --- [DevOpsAutomation] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'logErrorNotificationController' defined in file [/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes/org/remita/autologmonitor/controller/LogErrorNotificationController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'logErrorNotificationService' defined in file [/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes/org/remita/autologmonitor/service/LogErrorNotificationService.class]: Unsatisfied dependency expressed through constructor parameter 1: No qualifying bean of type 'org.remita.autologmonitor.repository.LogErrorRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
-2024-06-11T10:35:14.796+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2024-06-11T10:35:14.802+01:00  INFO 22958 --- [DevOpsAutomation] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-11T10:35:14.805+01:00 ERROR 22958 --- [DevOpsAutomation] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Parameter 1 of constructor in org.remita.autologmonitor.service.LogErrorNotificationService required a bean of type 'org.remita.autologmonitor.repository.LogErrorRepository' that could not be found.
-
-
-Action:
-
-Consider defining a bean of type 'org.remita.autologmonitor.repository.LogErrorRepository' in your configuration.
-
-2024-06-11T10:35:40.982+01:00  INFO 23039 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 23039 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
-2024-06-11T10:35:40.984+01:00  INFO 23039 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
-2024-06-11T10:35:41.022+01:00  INFO 23039 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jaxb-core-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.activation-api.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.xml.bind-api.jar
-2024-06-11T10:35:41.022+01:00  INFO 23039 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-impl-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-core.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/angus-activation.jar
-2024-06-11T10:35:41.022+01:00  INFO 23039 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-11T10:35:41.022+01:00  INFO 23039 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-11T10:35:42.168+01:00  INFO 23039 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
-2024-06-11T10:35:42.176+01:00  INFO 23039 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-06-11T10:35:42.177+01:00  INFO 23039 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-06-11T10:35:42.210+01:00  INFO 23039 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-06-11T10:35:42.210+01:00  INFO 23039 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1187 ms
-2024-06-11T10:35:42.784+01:00  INFO 23039 --- [DevOpsAutomation] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2024-06-11T10:35:42.789+01:00  INFO 23039 --- [DevOpsAutomation] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2024-06-11T10:35:42.832+01:00  INFO 23039 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9100 (http) with context path ''
-2024-06-11T10:35:42.842+01:00  INFO 23039 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Started AutoLogMonitorApplication in 2.22 seconds (process running for 2.879)
-2024-06-11T10:35:43.394+01:00  INFO 23039 --- [DevOpsAutomation] [RMI TCP Connection(3)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-06-11T10:35:43.394+01:00  INFO 23039 --- [DevOpsAutomation] [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-06-11T10:35:43.395+01:00  INFO 23039 --- [DevOpsAutomation] [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-06-11T10:36:43.650+01:00  INFO 23053 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 23053 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
-2024-06-11T10:36:43.651+01:00  INFO 23053 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
-2024-06-11T10:36:43.691+01:00  INFO 23053 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jaxb-core-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.activation-api.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.xml.bind-api.jar
-2024-06-11T10:36:43.691+01:00  INFO 23053 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-impl-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-core.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/angus-activation.jar
-2024-06-11T10:36:43.691+01:00  INFO 23053 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-11T10:36:43.691+01:00  INFO 23053 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-11T10:36:44.941+01:00  INFO 23053 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
-2024-06-11T10:36:44.950+01:00  INFO 23053 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-06-11T10:36:44.950+01:00  INFO 23053 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-06-11T10:36:44.987+01:00  INFO 23053 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-06-11T10:36:44.987+01:00  INFO 23053 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1295 ms
-2024-06-11T10:36:45.185+01:00  WARN 23053 --- [DevOpsAutomation] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'logErrorNotificationService' defined in file [/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes/org/remita/autologmonitor/service/LogErrorNotificationService.class]: Unsatisfied dependency expressed through constructor parameter 1: No qualifying bean of type 'org.remita.autologmonitor.repository.LogErrorRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
-2024-06-11T10:36:45.187+01:00  INFO 23053 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2024-06-11T10:36:47.468+01:00  INFO 23059 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 23059 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
-2024-06-11T10:36:47.470+01:00  INFO 23059 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
-2024-06-11T10:36:47.510+01:00  INFO 23059 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jaxb-core-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.activation-api.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.xml.bind-api.jar
-2024-06-11T10:36:47.511+01:00  INFO 23059 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-impl-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-core.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/angus-activation.jar
-2024-06-11T10:36:47.511+01:00  INFO 23059 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-11T10:36:47.511+01:00  INFO 23059 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-11T10:36:48.558+01:00  INFO 23059 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
-2024-06-11T10:36:48.566+01:00  INFO 23059 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-06-11T10:36:48.566+01:00  INFO 23059 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-06-11T10:36:48.598+01:00  INFO 23059 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-06-11T10:36:48.598+01:00  INFO 23059 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1086 ms
-2024-06-11T10:36:48.729+01:00  WARN 23059 --- [DevOpsAutomation] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'logErrorNotificationService' defined in file [/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes/org/remita/autologmonitor/service/LogErrorNotificationService.class]: Unsatisfied dependency expressed through constructor parameter 1: No qualifying bean of type 'org.remita.autologmonitor.repository.LogErrorRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
-2024-06-11T10:36:48.731+01:00  INFO 23059 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2024-06-11T10:36:48.746+01:00  INFO 23059 --- [DevOpsAutomation] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-11T10:36:48.763+01:00 ERROR 23059 --- [DevOpsAutomation] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Parameter 1 of constructor in org.remita.autologmonitor.service.LogErrorNotificationService required a bean of type 'org.remita.autologmonitor.repository.LogErrorRepository' that could not be found.
-
-
-Action:
-
-Consider defining a bean of type 'org.remita.autologmonitor.repository.LogErrorRepository' in your configuration.
-
-2024-06-11T10:40:54.483+01:00  INFO 23124 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 23124 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
-2024-06-11T10:40:54.484+01:00  INFO 23124 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
-2024-06-11T10:40:54.529+01:00  INFO 23124 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jaxb-core-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.activation-api.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.xml.bind-api.jar
-2024-06-11T10:40:54.530+01:00  INFO 23124 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-impl-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-core.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/angus-activation.jar
-2024-06-11T10:40:54.530+01:00  INFO 23124 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-11T10:40:54.530+01:00  INFO 23124 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-11T10:40:55.052+01:00  INFO 23124 --- [DevOpsAutomation] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-06-11T10:40:55.090+01:00  INFO 23124 --- [DevOpsAutomation] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29 ms. Found 1 JPA repository interface.
-2024-06-11T10:40:55.779+01:00  INFO 23124 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
-2024-06-11T10:40:55.790+01:00  INFO 23124 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-06-11T10:40:55.790+01:00  INFO 23124 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-06-11T10:40:55.822+01:00  INFO 23124 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-06-11T10:40:55.822+01:00  INFO 23124 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1292 ms
-2024-06-11T10:40:56.001+01:00  WARN 23124 --- [DevOpsAutomation] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'logErrorNotificationController' defined in file [/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes/org/remita/autologmonitor/controller/LogErrorNotificationController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'logErrorNotificationService' defined in file [/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes/org/remita/autologmonitor/service/LogErrorNotificationService.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'logErrorRepository' defined in org.remita.autologmonitor.repository.LogErrorRepository defined in @EnableJpaRepositories declared on AutoLogMonitorApplication: Cannot resolve reference to bean 'jpaSharedEM_entityManagerFactory' while setting bean property 'entityManager'
-2024-06-11T10:40:56.003+01:00  INFO 23124 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2024-06-11T10:40:56.027+01:00  INFO 23124 --- [DevOpsAutomation] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-11T10:40:56.051+01:00 ERROR 23124 --- [DevOpsAutomation] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Parameter 1 of constructor in org.remita.autologmonitor.service.LogErrorNotificationService required a bean named 'entityManagerFactory' that could not be found.
-
-
-Action:
-
-Consider defining a bean named 'entityManagerFactory' in your configuration.
-
-2024-06-11T10:42:41.999+01:00  INFO 23162 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 23162 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
-2024-06-11T10:42:42.001+01:00  INFO 23162 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
-2024-06-11T10:42:42.058+01:00  INFO 23162 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jaxb-core-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.activation-api.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.xml.bind-api.jar
-2024-06-11T10:42:42.058+01:00  INFO 23162 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-impl-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-core.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/angus-activation.jar
-2024-06-11T10:42:42.059+01:00  INFO 23162 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-11T10:42:42.059+01:00  INFO 23162 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-11T10:42:42.607+01:00  INFO 23162 --- [DevOpsAutomation] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-06-11T10:42:42.643+01:00  INFO 23162 --- [DevOpsAutomation] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29 ms. Found 1 JPA repository interface.
-2024-06-11T10:42:43.355+01:00  INFO 23162 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
-2024-06-11T10:42:43.366+01:00  INFO 23162 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-06-11T10:42:43.366+01:00  INFO 23162 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-06-11T10:42:43.399+01:00  INFO 23162 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-06-11T10:42:43.399+01:00  INFO 23162 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1339 ms
-2024-06-11T10:42:43.577+01:00  WARN 23162 --- [DevOpsAutomation] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'logErrorNotificationController' defined in file [/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes/org/remita/autologmonitor/controller/LogErrorNotificationController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'logErrorNotificationService' defined in file [/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes/org/remita/autologmonitor/service/LogErrorNotificationService.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'logErrorRepository' defined in org.remita.autologmonitor.repository.LogErrorRepository defined in @EnableJpaRepositories declared on AutoLogMonitorApplication: Cannot resolve reference to bean 'jpaSharedEM_entityManagerFactory' while setting bean property 'entityManager'
-2024-06-11T10:42:43.579+01:00  INFO 23162 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2024-06-11T10:42:43.601+01:00  INFO 23162 --- [DevOpsAutomation] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-11T10:42:43.623+01:00 ERROR 23162 --- [DevOpsAutomation] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Parameter 1 of constructor in org.remita.autologmonitor.service.LogErrorNotificationService required a bean named 'entityManagerFactory' that could not be found.
-
-
-Action:
-
-Consider defining a bean named 'entityManagerFactory' in your configuration.
-
-2024-06-11T10:42:58.088+01:00  INFO 23172 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 23172 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
-2024-06-11T10:42:58.089+01:00  INFO 23172 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
-2024-06-11T10:42:58.125+01:00  INFO 23172 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jaxb-core-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.activation-api.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.xml.bind-api.jar
-2024-06-11T10:42:58.126+01:00  INFO 23172 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-impl-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-core.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/angus-activation.jar
-2024-06-11T10:42:58.126+01:00  INFO 23172 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-11T10:42:58.126+01:00  INFO 23172 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-11T10:42:59.222+01:00  INFO 23172 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
-2024-06-11T10:42:59.232+01:00  INFO 23172 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-06-11T10:42:59.232+01:00  INFO 23172 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-06-11T10:42:59.271+01:00  INFO 23172 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-06-11T10:42:59.271+01:00  INFO 23172 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1145 ms
-2024-06-11T10:42:59.427+01:00  WARN 23172 --- [DevOpsAutomation] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'logErrorNotificationController' defined in file [/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes/org/remita/autologmonitor/controller/LogErrorNotificationController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'logErrorNotificationService' defined in file [/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes/org/remita/autologmonitor/service/LogErrorNotificationService.class]: Unsatisfied dependency expressed through constructor parameter 1: No qualifying bean of type 'org.remita.autologmonitor.repository.LogErrorRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
-2024-06-11T10:42:59.430+01:00  INFO 23172 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2024-06-11T10:42:59.455+01:00  INFO 23172 --- [DevOpsAutomation] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-11T10:42:59.477+01:00 ERROR 23172 --- [DevOpsAutomation] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Parameter 1 of constructor in org.remita.autologmonitor.service.LogErrorNotificationService required a bean of type 'org.remita.autologmonitor.repository.LogErrorRepository' that could not be found.
-
-
-Action:
-
-Consider defining a bean of type 'org.remita.autologmonitor.repository.LogErrorRepository' in your configuration.
-
-2024-06-11T10:44:43.814+01:00  INFO 23205 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 23205 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
-2024-06-11T10:44:43.815+01:00  INFO 23205 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
-2024-06-11T10:44:43.853+01:00  INFO 23205 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jaxb-core-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.activation-api.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.xml.bind-api.jar
-2024-06-11T10:44:43.853+01:00  INFO 23205 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-impl-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-core.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/angus-activation.jar
-2024-06-11T10:44:43.854+01:00  INFO 23205 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-11T10:44:43.854+01:00  INFO 23205 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-11T10:44:44.353+01:00  INFO 23205 --- [DevOpsAutomation] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-06-11T10:44:44.390+01:00  INFO 23205 --- [DevOpsAutomation] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30 ms. Found 1 JPA repository interface.
-2024-06-11T10:44:45.061+01:00  INFO 23205 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
-2024-06-11T10:44:45.069+01:00  INFO 23205 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-06-11T10:44:45.069+01:00  INFO 23205 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-06-11T10:44:45.100+01:00  INFO 23205 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-06-11T10:44:45.100+01:00  INFO 23205 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1246 ms
-2024-06-11T10:44:45.265+01:00  WARN 23205 --- [DevOpsAutomation] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'logErrorNotificationController' defined in file [/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes/org/remita/autologmonitor/controller/LogErrorNotificationController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'logErrorNotificationService' defined in file [/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes/org/remita/autologmonitor/service/LogErrorNotificationService.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'logErrorRepository' defined in org.remita.autologmonitor.repository.LogErrorRepository defined in @EnableJpaRepositories declared on AutoLogMonitorApplication: Cannot resolve reference to bean 'jpaSharedEM_entityManagerFactory' while setting bean property 'entityManager'
-2024-06-11T10:44:45.268+01:00  INFO 23205 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2024-06-11T10:44:45.287+01:00  INFO 23205 --- [DevOpsAutomation] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-11T10:44:45.309+01:00 ERROR 23205 --- [DevOpsAutomation] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Parameter 1 of constructor in org.remita.autologmonitor.service.LogErrorNotificationService required a bean named 'entityManagerFactory' that could not be found.
-
-
-Action:
-
-Consider defining a bean named 'entityManagerFactory' in your configuration.
-
-2024-06-11T10:46:33.463+01:00  INFO 23269 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 23269 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
-2024-06-11T10:46:33.465+01:00  INFO 23269 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
-2024-06-11T10:46:33.504+01:00  INFO 23269 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jaxb-core-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.activation-api.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.xml.bind-api.jar
-2024-06-11T10:46:33.504+01:00  INFO 23269 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-impl-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-core.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/angus-activation.jar
-2024-06-11T10:46:33.504+01:00  INFO 23269 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-11T10:46:33.504+01:00  INFO 23269 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-11T10:46:34.334+01:00  INFO 23269 --- [DevOpsAutomation] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-06-11T10:46:34.376+01:00  INFO 23269 --- [DevOpsAutomation] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35 ms. Found 1 JPA repository interface.
-2024-06-11T10:46:35.064+01:00  INFO 23269 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
-2024-06-11T10:46:35.074+01:00  INFO 23269 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-06-11T10:46:35.074+01:00  INFO 23269 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-06-11T10:46:35.107+01:00  INFO 23269 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-06-11T10:46:35.107+01:00  INFO 23269 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1603 ms
-2024-06-11T10:46:35.379+01:00  INFO 23269 --- [DevOpsAutomation] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-06-11T10:46:35.439+01:00  INFO 23269 --- [DevOpsAutomation] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-06-11T10:46:35.472+01:00  INFO 23269 --- [DevOpsAutomation] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-06-11T10:46:35.693+01:00  INFO 23269 --- [DevOpsAutomation] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-06-11T10:46:35.718+01:00  INFO 23269 --- [DevOpsAutomation] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-06-11T10:46:35.722+01:00  WARN 23269 --- [DevOpsAutomation] [restartedMain] c.zaxxer.hikari.util.DriverDataSource    : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2024-06-11T10:46:36.131+01:00  INFO 23269 --- [DevOpsAutomation] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@799b5fc7
-2024-06-11T10:46:36.133+01:00  INFO 23269 --- [DevOpsAutomation] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-06-11T10:46:36.962+01:00  INFO 23269 --- [DevOpsAutomation] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-06-11T10:46:37.078+01:00  INFO 23269 --- [DevOpsAutomation] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-06-11T10:46:37.082+01:00  WARN 23269 --- [DevOpsAutomation] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: EntityManagerFactory interface [interface org.hibernate.SessionFactory] seems to conflict with Spring's EntityManagerFactoryInfo mixin - consider resetting the 'entityManagerFactoryInterface' property to plain [jakarta.persistence.EntityManagerFactory]
-2024-06-11T10:46:37.083+01:00  INFO 23269 --- [DevOpsAutomation] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-06-11T10:46:37.089+01:00  INFO 23269 --- [DevOpsAutomation] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-06-11T10:46:37.091+01:00  INFO 23269 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2024-06-11T10:46:37.103+01:00  INFO 23269 --- [DevOpsAutomation] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-11T10:46:37.121+01:00 ERROR 23269 --- [DevOpsAutomation] [restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: EntityManagerFactory interface [interface org.hibernate.SessionFactory] seems to conflict with Spring's EntityManagerFactoryInfo mixin - consider resetting the 'entityManagerFactoryInterface' property to plain [jakarta.persistence.EntityManagerFactory]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786) ~[spring-beans-6.1.6.jar:6.1.6]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.6.jar:6.1.6]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.6.jar:6.1.6]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.1.6.jar:6.1.6]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.6.jar:6.1.6]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.1.6.jar:6.1.6]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.6.jar:6.1.6]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234) ~[spring-context-6.1.6.jar:6.1.6]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952) ~[spring-context-6.1.6.jar:6.1.6]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624) ~[spring-context-6.1.6.jar:6.1.6]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.2.5.jar:3.2.5]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.2.5.jar:3.2.5]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.2.5.jar:3.2.5]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334) ~[spring-boot-3.2.5.jar:3.2.5]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.5.jar:3.2.5]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.5.jar:3.2.5]
-	at org.remita.autologmonitor.AutoLogMonitorApplication.main(AutoLogMonitorApplication.java:19) ~[classes/:na]
+2024-06-13T15:23:01.008+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 50529 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
+2024-06-13T15:23:01.023+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-06-13T15:23:01.086+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jaxb-core-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.activation-api.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.xml.bind-api.jar
+2024-06-13T15:23:01.087+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-impl-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-core.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/angus-activation.jar
+2024-06-13T15:23:01.087+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-13T15:23:01.087+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-13T15:23:02.292+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-13T15:23:02.362+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57 ms. Found 1 JPA repository interface.
+2024-06-13T15:23:03.517+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
+2024-06-13T15:23:03.531+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-13T15:23:03.532+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-13T15:23:03.578+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-13T15:23:03.578+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2490 ms
+2024-06-13T15:23:03.973+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-13T15:23:04.083+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-13T15:23:04.130+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-13T15:23:04.425+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-13T15:23:04.461+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-06-13T15:23:04.992+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6a14d1a0
+2024-06-13T15:23:04.995+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-06-13T15:23:05.984+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-13T15:23:06.093+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-13T15:23:06.472+01:00  WARN 50529 --- [DevOpsAutomation] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-13T15:23:07.178+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-13T15:23:07.187+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-06-13T15:23:07.262+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9100 (http) with context path ''
+2024-06-13T15:23:07.275+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Started AutoLogMonitorApplication in 6.847 seconds (process running for 7.776)
+2024-06-13T15:23:07.629+01:00  INFO 50529 --- [DevOpsAutomation] [RMI TCP Connection(4)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-13T15:23:07.629+01:00  INFO 50529 --- [DevOpsAutomation] [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-13T15:23:07.634+01:00  INFO 50529 --- [DevOpsAutomation] [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2024-06-13T15:23:09.519+01:00  WARN 50529 --- [DevOpsAutomation] [RMI TCP Connection(3)-127.0.0.1] o.s.b.actuate.mail.MailHealthIndicator   : Mail health check failed
+
+jakarta.mail.AuthenticationFailedException: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-42286eefa07sm64277375e9.8 - gsmtp
+
+	at org.eclipse.angus.mail.smtp.SMTPTransport$Authenticator.authenticate(SMTPTransport.java:954) ~[jakarta.mail-2.0.3.jar:na]
+	at org.eclipse.angus.mail.smtp.SMTPTransport.authenticate(SMTPTransport.java:865) ~[jakarta.mail-2.0.3.jar:na]
+	at org.eclipse.angus.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:769) ~[jakarta.mail-2.0.3.jar:na]
+	at jakarta.mail.Service.connect(Service.java:345) ~[jakarta.mail-2.0.3.jar:na]
+	at org.springframework.mail.javamail.JavaMailSenderImpl.connectTransport(JavaMailSenderImpl.java:480) ~[spring-context-support-6.1.6.jar:6.1.6]
+	at org.springframework.mail.javamail.JavaMailSenderImpl.testConnection(JavaMailSenderImpl.java:360) ~[spring-context-support-6.1.6.jar:6.1.6]
+	at org.springframework.boot.actuate.mail.MailHealthIndicator.doHealthCheck(MailHealthIndicator.java:52) ~[spring-boot-actuator-3.2.5.jar:3.2.5]
+	at org.springframework.boot.actuate.health.AbstractHealthIndicator.health(AbstractHealthIndicator.java:82) ~[spring-boot-actuator-3.2.5.jar:3.2.5]
+	at org.springframework.boot.actuate.health.HealthIndicator.getHealth(HealthIndicator.java:37) ~[spring-boot-actuator-3.2.5.jar:3.2.5]
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:82) ~[spring-boot-actuator-3.2.5.jar:3.2.5]
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:41) ~[spring-boot-actuator-3.2.5.jar:3.2.5]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getLoggedHealth(HealthEndpointSupport.java:172) ~[spring-boot-actuator-3.2.5.jar:3.2.5]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:145) ~[spring-boot-actuator-3.2.5.jar:3.2.5]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getAggregateContribution(HealthEndpointSupport.java:156) ~[spring-boot-actuator-3.2.5.jar:3.2.5]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:141) ~[spring-boot-actuator-3.2.5.jar:3.2.5]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:110) ~[spring-boot-actuator-3.2.5.jar:3.2.5]
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:81) ~[spring-boot-actuator-3.2.5.jar:3.2.5]
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:76) ~[spring-boot-actuator-3.2.5.jar:3.2.5]
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:66) ~[spring-boot-actuator-3.2.5.jar:3.2.5]
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.2.5.jar:3.2.5]
-Caused by: java.lang.IllegalStateException: EntityManagerFactory interface [interface org.hibernate.SessionFactory] seems to conflict with Spring's EntityManagerFactoryInfo mixin - consider resetting the 'entityManagerFactoryInterface' property to plain [jakarta.persistence.EntityManagerFactory]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.createEntityManagerFactoryProxy(AbstractEntityManagerFactoryBean.java:469) ~[spring-orm-6.1.6.jar:6.1.6]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:403) ~[spring-orm-6.1.6.jar:6.1.6]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.1.6.jar:6.1.6]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833) ~[spring-beans-6.1.6.jar:6.1.6]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782) ~[spring-beans-6.1.6.jar:6.1.6]
-	... 19 common frames omitted
-Caused by: java.lang.IllegalArgumentException: methods with same signature getSchemaManager() but incompatible return types: [interface org.hibernate.relational.SchemaManager, interface jakarta.persistence.SchemaManager]
-	at java.base/java.lang.reflect.ProxyGenerator.checkReturnTypes(ProxyGenerator.java:311) ~[na:na]
-	at java.base/java.lang.reflect.ProxyGenerator.generateClassFile(ProxyGenerator.java:488) ~[na:na]
-	at java.base/java.lang.reflect.ProxyGenerator.generateProxyClass(ProxyGenerator.java:178) ~[na:na]
-	at java.base/java.lang.reflect.Proxy$ProxyBuilder.defineProxyClass(Proxy.java:544) ~[na:na]
-	at java.base/java.lang.reflect.Proxy$ProxyBuilder.build(Proxy.java:657) ~[na:na]
-	at java.base/java.lang.reflect.Proxy.lambda$getProxyConstructor$1(Proxy.java:440) ~[na:na]
-	at java.base/jdk.internal.loader.AbstractClassLoaderValue$Memoizer.get(AbstractClassLoaderValue.java:329) ~[na:na]
-	at java.base/jdk.internal.loader.AbstractClassLoaderValue.computeIfAbsent(AbstractClassLoaderValue.java:205) ~[na:na]
-	at java.base/java.lang.reflect.Proxy.getProxyConstructor(Proxy.java:438) ~[na:na]
-	at java.base/java.lang.reflect.Proxy.newProxyInstance(Proxy.java:1034) ~[na:na]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.createEntityManagerFactoryProxy(AbstractEntityManagerFactoryBean.java:464) ~[spring-orm-6.1.6.jar:6.1.6]
-	... 23 common frames omitted
-
-2024-06-11T10:57:09.087+01:00  INFO 23658 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 23658 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
-2024-06-11T10:57:09.089+01:00  INFO 23658 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
-2024-06-11T10:57:09.147+01:00  INFO 23658 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jaxb-core-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.activation-api.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.xml.bind-api.jar
-2024-06-11T10:57:09.148+01:00  INFO 23658 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-impl-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-core.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/angus-activation.jar
-2024-06-11T10:57:09.148+01:00  INFO 23658 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-11T10:57:09.148+01:00  INFO 23658 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-11T10:57:10.115+01:00  INFO 23658 --- [DevOpsAutomation] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-06-11T10:57:10.168+01:00  INFO 23658 --- [DevOpsAutomation] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43 ms. Found 1 JPA repository interface.
-2024-06-11T10:57:10.909+01:00  INFO 23658 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
-2024-06-11T10:57:10.920+01:00  INFO 23658 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-06-11T10:57:10.921+01:00  INFO 23658 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-06-11T10:57:10.953+01:00  INFO 23658 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-06-11T10:57:10.954+01:00  INFO 23658 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1805 ms
-2024-06-11T10:57:11.243+01:00  INFO 23658 --- [DevOpsAutomation] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-06-11T10:57:11.319+01:00  INFO 23658 --- [DevOpsAutomation] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-06-11T10:57:11.362+01:00  INFO 23658 --- [DevOpsAutomation] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-06-11T10:57:11.620+01:00  INFO 23658 --- [DevOpsAutomation] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-06-11T10:57:11.648+01:00  INFO 23658 --- [DevOpsAutomation] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-06-11T10:57:11.934+01:00  INFO 23658 --- [DevOpsAutomation] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3675d06b
-2024-06-11T10:57:11.936+01:00  INFO 23658 --- [DevOpsAutomation] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-06-11T10:57:12.790+01:00  INFO 23658 --- [DevOpsAutomation] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-06-11T10:57:12.834+01:00  INFO 23658 --- [DevOpsAutomation] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-06-11T10:57:12.838+01:00  WARN 23658 --- [DevOpsAutomation] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: EntityManagerFactory interface [interface org.hibernate.SessionFactory] seems to conflict with Spring's EntityManagerFactoryInfo mixin - consider resetting the 'entityManagerFactoryInterface' property to plain [jakarta.persistence.EntityManagerFactory]
-2024-06-11T10:57:12.839+01:00  INFO 23658 --- [DevOpsAutomation] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-06-11T10:57:12.846+01:00  INFO 23658 --- [DevOpsAutomation] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-06-11T10:57:12.848+01:00  INFO 23658 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2024-06-11T10:57:12.860+01:00  INFO 23658 --- [DevOpsAutomation] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-11T10:57:12.877+01:00 ERROR 23658 --- [DevOpsAutomation] [restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: EntityManagerFactory interface [interface org.hibernate.SessionFactory] seems to conflict with Spring's EntityManagerFactoryInfo mixin - consider resetting the 'entityManagerFactoryInterface' property to plain [jakarta.persistence.EntityManagerFactory]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786) ~[spring-beans-6.1.6.jar:6.1.6]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.6.jar:6.1.6]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.6.jar:6.1.6]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.1.6.jar:6.1.6]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.6.jar:6.1.6]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.1.6.jar:6.1.6]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.6.jar:6.1.6]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234) ~[spring-context-6.1.6.jar:6.1.6]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952) ~[spring-context-6.1.6.jar:6.1.6]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624) ~[spring-context-6.1.6.jar:6.1.6]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.2.5.jar:3.2.5]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.2.5.jar:3.2.5]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.2.5.jar:3.2.5]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334) ~[spring-boot-3.2.5.jar:3.2.5]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.5.jar:3.2.5]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.5.jar:3.2.5]
-	at org.remita.autologmonitor.AutoLogMonitorApplication.main(AutoLogMonitorApplication.java:19) ~[classes/:na]
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:281) ~[spring-core-6.1.6.jar:6.1.6]
+	at org.springframework.boot.actuate.endpoint.invoke.reflect.ReflectiveOperationInvoker.invoke(ReflectiveOperationInvoker.java:74) ~[spring-boot-actuator-3.2.5.jar:3.2.5]
+	at org.springframework.boot.actuate.endpoint.annotation.AbstractDiscoveredOperation.invoke(AbstractDiscoveredOperation.java:60) ~[spring-boot-actuator-3.2.5.jar:3.2.5]
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:124) ~[spring-boot-actuator-3.2.5.jar:3.2.5]
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:97) ~[spring-boot-actuator-3.2.5.jar:3.2.5]
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:803) ~[na:na]
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:802) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1472) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1310) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1405) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:829) ~[na:na]
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.2.5.jar:3.2.5]
-Caused by: java.lang.IllegalStateException: EntityManagerFactory interface [interface org.hibernate.SessionFactory] seems to conflict with Spring's EntityManagerFactoryInfo mixin - consider resetting the 'entityManagerFactoryInterface' property to plain [jakarta.persistence.EntityManagerFactory]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.createEntityManagerFactoryProxy(AbstractEntityManagerFactoryBean.java:469) ~[spring-orm-6.1.6.jar:6.1.6]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:403) ~[spring-orm-6.1.6.jar:6.1.6]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.1.6.jar:6.1.6]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833) ~[spring-beans-6.1.6.jar:6.1.6]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782) ~[spring-beans-6.1.6.jar:6.1.6]
-	... 19 common frames omitted
-Caused by: java.lang.IllegalArgumentException: methods with same signature getSchemaManager() but incompatible return types: [interface org.hibernate.relational.SchemaManager, interface jakarta.persistence.SchemaManager]
-	at java.base/java.lang.reflect.ProxyGenerator.checkReturnTypes(ProxyGenerator.java:311) ~[na:na]
-	at java.base/java.lang.reflect.ProxyGenerator.generateClassFile(ProxyGenerator.java:488) ~[na:na]
-	at java.base/java.lang.reflect.ProxyGenerator.generateProxyClass(ProxyGenerator.java:178) ~[na:na]
-	at java.base/java.lang.reflect.Proxy$ProxyBuilder.defineProxyClass(Proxy.java:544) ~[na:na]
-	at java.base/java.lang.reflect.Proxy$ProxyBuilder.build(Proxy.java:657) ~[na:na]
-	at java.base/java.lang.reflect.Proxy.lambda$getProxyConstructor$1(Proxy.java:440) ~[na:na]
-	at java.base/jdk.internal.loader.AbstractClassLoaderValue$Memoizer.get(AbstractClassLoaderValue.java:329) ~[na:na]
-	at java.base/jdk.internal.loader.AbstractClassLoaderValue.computeIfAbsent(AbstractClassLoaderValue.java:205) ~[na:na]
-	at java.base/java.lang.reflect.Proxy.getProxyConstructor(Proxy.java:438) ~[na:na]
-	at java.base/java.lang.reflect.Proxy.newProxyInstance(Proxy.java:1034) ~[na:na]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.createEntityManagerFactoryProxy(AbstractEntityManagerFactoryBean.java:464) ~[spring-orm-6.1.6.jar:6.1.6]
-	... 23 common frames omitted
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360) ~[na:na]
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200) ~[na:na]
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197) ~[na:na]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714) ~[na:na]
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721) ~[na:na]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
 
-2024-06-11T10:57:50.762+01:00  INFO 23692 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 23692 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
-2024-06-11T10:57:50.764+01:00  INFO 23692 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
-2024-06-11T10:57:50.800+01:00  INFO 23692 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jaxb-core-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.activation-api.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.xml.bind-api.jar
-2024-06-11T10:57:50.800+01:00  INFO 23692 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-impl-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-core.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/angus-activation.jar
-2024-06-11T10:57:50.800+01:00  INFO 23692 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-11T10:57:50.800+01:00  INFO 23692 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-11T10:57:51.673+01:00  INFO 23692 --- [DevOpsAutomation] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-06-11T10:57:51.715+01:00  INFO 23692 --- [DevOpsAutomation] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35 ms. Found 1 JPA repository interface.
-2024-06-11T10:57:52.593+01:00  INFO 23692 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
-2024-06-11T10:57:52.604+01:00  INFO 23692 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-06-11T10:57:52.605+01:00  INFO 23692 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-06-11T10:57:52.646+01:00  INFO 23692 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-06-11T10:57:52.647+01:00  INFO 23692 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1847 ms
-2024-06-11T10:57:52.942+01:00  INFO 23692 --- [DevOpsAutomation] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-06-11T10:57:53.007+01:00  INFO 23692 --- [DevOpsAutomation] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-06-11T10:57:53.040+01:00  INFO 23692 --- [DevOpsAutomation] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-06-11T10:57:53.271+01:00  INFO 23692 --- [DevOpsAutomation] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-06-11T10:57:53.298+01:00  INFO 23692 --- [DevOpsAutomation] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-06-11T10:57:53.564+01:00  INFO 23692 --- [DevOpsAutomation] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@31cdeb16
-2024-06-11T10:57:53.566+01:00  INFO 23692 --- [DevOpsAutomation] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-06-11T10:57:54.395+01:00  INFO 23692 --- [DevOpsAutomation] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-06-11T10:57:54.430+01:00  INFO 23692 --- [DevOpsAutomation] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-06-11T10:57:54.433+01:00  WARN 23692 --- [DevOpsAutomation] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: EntityManagerFactory interface [interface org.hibernate.SessionFactory] seems to conflict with Spring's EntityManagerFactoryInfo mixin - consider resetting the 'entityManagerFactoryInterface' property to plain [jakarta.persistence.EntityManagerFactory]
-2024-06-11T10:57:54.434+01:00  INFO 23692 --- [DevOpsAutomation] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-06-11T10:57:54.441+01:00  INFO 23692 --- [DevOpsAutomation] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-06-11T10:57:54.443+01:00  INFO 23692 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2024-06-11T10:57:54.454+01:00  INFO 23692 --- [DevOpsAutomation] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-06-11T10:57:54.471+01:00 ERROR 23692 --- [DevOpsAutomation] [restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: EntityManagerFactory interface [interface org.hibernate.SessionFactory] seems to conflict with Spring's EntityManagerFactoryInfo mixin - consider resetting the 'entityManagerFactoryInterface' property to plain [jakarta.persistence.EntityManagerFactory]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786) ~[spring-beans-6.1.6.jar:6.1.6]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.6.jar:6.1.6]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.6.jar:6.1.6]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.1.6.jar:6.1.6]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.6.jar:6.1.6]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.1.6.jar:6.1.6]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.6.jar:6.1.6]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1234) ~[spring-context-6.1.6.jar:6.1.6]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952) ~[spring-context-6.1.6.jar:6.1.6]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624) ~[spring-context-6.1.6.jar:6.1.6]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.2.5.jar:3.2.5]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.2.5.jar:3.2.5]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.2.5.jar:3.2.5]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334) ~[spring-boot-3.2.5.jar:3.2.5]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.5.jar:3.2.5]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.5.jar:3.2.5]
-	at org.remita.autologmonitor.AutoLogMonitorApplication.main(AutoLogMonitorApplication.java:19) ~[classes/:na]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.2.5.jar:3.2.5]
-Caused by: java.lang.IllegalStateException: EntityManagerFactory interface [interface org.hibernate.SessionFactory] seems to conflict with Spring's EntityManagerFactoryInfo mixin - consider resetting the 'entityManagerFactoryInterface' property to plain [jakarta.persistence.EntityManagerFactory]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.createEntityManagerFactoryProxy(AbstractEntityManagerFactoryBean.java:469) ~[spring-orm-6.1.6.jar:6.1.6]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:403) ~[spring-orm-6.1.6.jar:6.1.6]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.1.6.jar:6.1.6]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1833) ~[spring-beans-6.1.6.jar:6.1.6]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782) ~[spring-beans-6.1.6.jar:6.1.6]
-	... 19 common frames omitted
-Caused by: java.lang.IllegalArgumentException: methods with same signature getSchemaManager() but incompatible return types: [interface org.hibernate.relational.SchemaManager, interface jakarta.persistence.SchemaManager]
-	at java.base/java.lang.reflect.ProxyGenerator.checkReturnTypes(ProxyGenerator.java:311) ~[na:na]
-	at java.base/java.lang.reflect.ProxyGenerator.generateClassFile(ProxyGenerator.java:488) ~[na:na]
-	at java.base/java.lang.reflect.ProxyGenerator.generateProxyClass(ProxyGenerator.java:178) ~[na:na]
-	at java.base/java.lang.reflect.Proxy$ProxyBuilder.defineProxyClass(Proxy.java:544) ~[na:na]
-	at java.base/java.lang.reflect.Proxy$ProxyBuilder.build(Proxy.java:657) ~[na:na]
-	at java.base/java.lang.reflect.Proxy.lambda$getProxyConstructor$1(Proxy.java:440) ~[na:na]
-	at java.base/jdk.internal.loader.AbstractClassLoaderValue$Memoizer.get(AbstractClassLoaderValue.java:329) ~[na:na]
-	at java.base/jdk.internal.loader.AbstractClassLoaderValue.computeIfAbsent(AbstractClassLoaderValue.java:205) ~[na:na]
-	at java.base/java.lang.reflect.Proxy.getProxyConstructor(Proxy.java:438) ~[na:na]
-	at java.base/java.lang.reflect.Proxy.newProxyInstance(Proxy.java:1034) ~[na:na]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.createEntityManagerFactoryProxy(AbstractEntityManagerFactoryBean.java:464) ~[spring-orm-6.1.6.jar:6.1.6]
-	... 23 common frames omitted
-
-2024-06-11T10:59:57.398+01:00  INFO 23773 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 23773 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
-2024-06-11T10:59:57.400+01:00  INFO 23773 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
-2024-06-11T10:59:57.435+01:00  INFO 23773 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jaxb-core-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.activation-api.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.5/jakarta.xml.bind-api.jar
-2024-06-11T10:59:57.435+01:00  INFO 23773 --- [DevOpsAutomation] [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in /Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-impl-4.0.5.jar referenced one or more files that do not exist: file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/jaxb-core.jar,file:/Users/henry/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.5/angus-activation.jar
-2024-06-11T10:59:57.435+01:00  INFO 23773 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-06-11T10:59:57.435+01:00  INFO 23773 --- [DevOpsAutomation] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-06-11T10:59:58.237+01:00  INFO 23773 --- [DevOpsAutomation] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-06-11T10:59:58.290+01:00  INFO 23773 --- [DevOpsAutomation] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 1 JPA repository interface.
-2024-06-11T10:59:59.017+01:00  INFO 23773 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
-2024-06-11T10:59:59.027+01:00  INFO 23773 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-06-11T10:59:59.027+01:00  INFO 23773 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2024-06-11T10:59:59.063+01:00  INFO 23773 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-06-11T10:59:59.063+01:00  INFO 23773 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1627 ms
-2024-06-11T10:59:59.351+01:00  INFO 23773 --- [DevOpsAutomation] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-06-11T10:59:59.411+01:00  INFO 23773 --- [DevOpsAutomation] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-06-11T10:59:59.442+01:00  INFO 23773 --- [DevOpsAutomation] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-06-11T10:59:59.658+01:00  INFO 23773 --- [DevOpsAutomation] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-06-11T10:59:59.687+01:00  INFO 23773 --- [DevOpsAutomation] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-06-11T10:59:59.974+01:00  INFO 23773 --- [DevOpsAutomation] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@16ff4e4d
-2024-06-11T10:59:59.976+01:00  INFO 23773 --- [DevOpsAutomation] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-06-11T11:00:00.755+01:00  INFO 23773 --- [DevOpsAutomation] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-06-11T11:00:00.791+01:00  INFO 23773 --- [DevOpsAutomation] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-06-11T11:00:01.153+01:00  WARN 23773 --- [DevOpsAutomation] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-06-11T11:00:01.833+01:00  INFO 23773 --- [DevOpsAutomation] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2024-06-11T11:00:01.841+01:00  INFO 23773 --- [DevOpsAutomation] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2024-06-11T11:00:01.911+01:00  INFO 23773 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9100 (http) with context path ''
-2024-06-11T11:00:01.924+01:00  INFO 23773 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Started AutoLogMonitorApplication in 4.898 seconds (process running for 5.727)
-2024-06-11T11:00:02.377+01:00  INFO 23773 --- [DevOpsAutomation] [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-06-11T11:00:02.377+01:00  INFO 23773 --- [DevOpsAutomation] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-06-11T11:00:02.398+01:00  INFO 23773 --- [DevOpsAutomation] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 14 ms
-2024-06-11T11:00:18.166+01:00  WARN 23773 --- [DevOpsAutomation] [pool-2-thread-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1406, SQLState: 22001
-2024-06-11T11:00:18.166+01:00 ERROR 23773 --- [DevOpsAutomation] [pool-2-thread-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : Data truncation: Data too long for column 'details' at row 1
-2024-06-11T11:00:18.212+01:00  WARN 23773 --- [DevOpsAutomation] [pool-2-thread-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1406, SQLState: 22001
-2024-06-11T11:00:18.213+01:00 ERROR 23773 --- [DevOpsAutomation] [pool-2-thread-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : Data truncation: Data too long for column 'details' at row 1
-2024-06-11T11:00:18.326+01:00  WARN 23773 --- [DevOpsAutomation] [pool-2-thread-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1406, SQLState: 22001
-2024-06-11T11:00:18.327+01:00 ERROR 23773 --- [DevOpsAutomation] [pool-2-thread-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : Data truncation: Data too long for column 'details' at row 1
-2024-06-11T11:01:13.447+01:00  INFO 23773 --- [DevOpsAutomation] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-06-11T11:01:13.451+01:00  INFO 23773 --- [DevOpsAutomation] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-06-11T11:01:13.455+01:00  INFO 23773 --- [DevOpsAutomation] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-06-13T15:27:50.179+01:00  INFO 50529 --- [DevOpsAutomation] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-06-13T15:27:50.251+01:00  INFO 50529 --- [DevOpsAutomation] [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-13T15:27:50.270+01:00  INFO 50529 --- [DevOpsAutomation] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-06-13T15:27:50.299+01:00  INFO 50529 --- [DevOpsAutomation] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-06-13T15:27:50.495+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Starting AutoLogMonitorApplication using Java 21.0.2 with PID 50529 (/Users/henry/Developer/Backend/Full Project/AutoLogMonitor/target/classes started by henry in /Users/henry/Developer/Backend/Full Project/AutoLogMonitor)
+2024-06-13T15:27:50.496+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-06-13T15:27:50.879+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-13T15:27:50.889+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 1 JPA repository interface.
+2024-06-13T15:27:51.167+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9100 (http)
+2024-06-13T15:27:51.172+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-13T15:27:51.173+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-13T15:27:51.189+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-13T15:27:51.189+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 691 ms
+2024-06-13T15:27:51.346+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-13T15:27:51.350+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-13T15:27:51.355+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-13T15:27:51.356+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-06-13T15:27:51.383+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@49246c6f
+2024-06-13T15:27:51.384+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-06-13T15:27:51.426+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-13T15:27:51.460+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-13T15:27:51.657+01:00  WARN 50529 --- [DevOpsAutomation] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-13T15:27:52.104+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-13T15:27:52.109+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-06-13T15:27:52.137+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9100 (http) with context path ''
+2024-06-13T15:27:52.144+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] o.r.a.AutoLogMonitorApplication          : Started AutoLogMonitorApplication in 1.684 seconds (process running for 292.678)
+2024-06-13T15:27:52.147+01:00  INFO 50529 --- [DevOpsAutomation] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-06-13T15:29:38.110+01:00  INFO 50529 --- [DevOpsAutomation] [http-nio-9100-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-13T15:29:38.112+01:00  INFO 50529 --- [DevOpsAutomation] [http-nio-9100-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-13T15:29:38.116+01:00  INFO 50529 --- [DevOpsAutomation] [http-nio-9100-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2024-06-13T15:43:57.118+01:00  INFO 50529 --- [DevOpsAutomation] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-13T15:43:57.137+01:00  INFO 50529 --- [DevOpsAutomation] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-06-13T15:43:57.199+01:00  INFO 50529 --- [DevOpsAutomation] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
