@@ -3,6 +3,7 @@ package org.remita.autologmonitor.service;
 import jakarta.mail.MessagingException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.bouncycastle.util.Strings;
 import org.remita.autologmonitor.dto.MailResponseDto;
 import org.remita.autologmonitor.entity.LogError;
 import org.remita.autologmonitor.entity.Status;
@@ -125,8 +126,7 @@ public class LogErrorNotificationService {
 
         String currentTimestamp, errorTimesStamp;
 
-        for(int i = 0; i < logChunk.size(); i++){
-            String line = logChunk.get(i);
+        for(String line : logChunk){
             if (isTimestampLine(line)) {
                 // Update current timestamp and error
                 currentTimestamp = extractTimestamp(line);
@@ -139,6 +139,27 @@ public class LogErrorNotificationService {
             }
         }
         return errorLines;
+    }
+
+    private void saveErrorAsEntries(ArrayList<String> errorLines, String filePath) {
+        ArrayList<String> logs = readChunkFromFile(filePath);
+        Map<String, ArrayList<String>> logEntries = new HashMap<>();
+
+        for (String errorLine : errorLines) {
+            boolean newTimeStampReached = false;
+            int startIndex = binarySearchByTimestamp(errorLine, filePath);
+
+            ArrayList<String> logLines = new ArrayList<>();
+
+            while (startIndex < logs.size() && !newTimeStampReached) {
+                if (isTimestampLine(logs.get(startIndex))) {
+                        newTimeStampReached = true;
+                }
+                logLines.add(logs.get(startIndex));
+                startIndex++;
+            }
+            logEntries.put(errorLine, logLines);
+        }
     }
 
     private void saveErrorToDashboard(String msg, String timestamp){
