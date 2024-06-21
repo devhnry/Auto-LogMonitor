@@ -106,6 +106,16 @@ public class LogErrorNotificationService {
         return -1;
     }
 
+    private static List<String> getNextChunkToAnalyse(ArrayList<String> logs, String timeStamp, String filePath) {
+        int chunkSize = 50;
+        int index = binarySearchByTimestamp(logs, timeStamp,filePath);
+        List<String> nextLogChunk = new ArrayList<>();
+        for (int i = index + 1; i <= index + chunkSize && i < logs.size(); i++) {
+            nextLogChunk.add(logs.get(i));
+        }
+        return nextLogChunk;
+    }
+
     private void saveErrorToDashboard(String msg, String timestamp){
         LogError error = new LogError();
         error.setStatus(Status.PENDING);
