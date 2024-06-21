@@ -37,15 +37,14 @@ public class LogErrorNotificationService {
         ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
         File dir = new File(logDirectory);
         File[] directoryListing = dir.listFiles();
+        Map<String, List<String>> map = new HashMap<>();
 
         if (directoryListing != null) {
             for (File logFile : directoryListing) {
                 if(logFile.getName().endsWith(".log")){
                     executorService.submit(() -> {
                         try {
-                            sendMailToDevOps(
-//                                    performErrorCheckOnFile(
-//                                            String.format("%s/%s", logDirectory, logFile.getName())), logFile.getName());
+                            sendMailToDevOps(map, new String());
                         } catch (MessagingException e) {
                             throw new RuntimeException(e);
                         }
@@ -70,6 +69,41 @@ public class LogErrorNotificationService {
             log.error("Exception Occurred while reading file {}", e.getMessage());
         }
         return allLogLines;
+    }
+
+    private static int binarySearchByTimestamp(ArrayList<String> logs, String targetTimestamp, String filePath) {
+        logs = readChunkFromFile(filePath);
+        int left = 0, right = logs.size() - 1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            String midLine = logs.get(mid);
+            String midTimestamp;
+
+            //Checking if the line is not an error line
+            if (!isTimestampLine(midLine)) {
+                while (mid < right && !isTimestampLine(logs.get(mid))) {
+                    mid++;
+                }
+                if (mid >= right) {
+                    break;
+                }
+                midLine = logs.get(mid);
+            }
+            midTimestamp = extractTimestamp(midLine);
+
+            // The main binary search function
+            if (midTimestamp != null) {
+                if (midTimestamp.equals(targetTimestamp)) {
+                    return mid;
+                } else if (targetTimestamp.compareTo(midTimestamp) > 0) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+        }
+        return -1;
     }
 
     private void saveErrorToDashboard(String msg, String timestamp){
