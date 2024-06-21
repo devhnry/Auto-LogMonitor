@@ -57,7 +57,7 @@ public class LogErrorNotificationService {
         executorService.shutdown();
     }
 
-    private static ArrayList<String> readChunkFromFile(String filePath){
+    private ArrayList<String> readChunkFromFile(String filePath){
         File logFile = new File(filePath);
         ArrayList<String> allLogLines = new ArrayList<>();
         try(BufferedReader READER = new BufferedReader(new FileReader(logFile))){
@@ -71,8 +71,8 @@ public class LogErrorNotificationService {
         return allLogLines;
     }
 
-    private static int binarySearchByTimestamp(ArrayList<String> logs, String targetTimestamp, String filePath) {
-        logs = readChunkFromFile(filePath);
+    private int binarySearchByTimestamp(String targetTimestamp, String filePath) {
+        ArrayList<String> logs = readChunkFromFile(filePath);
         int left = 0, right = logs.size() - 1;
 
         while (left <= right) {
@@ -106,14 +106,39 @@ public class LogErrorNotificationService {
         return -1;
     }
 
-    private static List<String> getNextChunkToAnalyse(ArrayList<String> logs, String timeStamp, String filePath) {
+    private ArrayList<String> getNextChunkToAnalyse(String timeStamp, String filePath) {
+        ArrayList<String> logs = readChunkFromFile(filePath);
         int chunkSize = 50;
-        int index = binarySearchByTimestamp(logs, timeStamp,filePath);
-        List<String> nextLogChunk = new ArrayList<>();
+        int index = binarySearchByTimestamp(timeStamp,filePath);
+        ArrayList<String> nextLogChunk = new ArrayList<>();
         for (int i = index + 1; i <= index + chunkSize && i < logs.size(); i++) {
             nextLogChunk.add(logs.get(i));
         }
         return nextLogChunk;
+    }
+
+    private ArrayList<String> performAnalysisOnLines(String filePath){
+        String timestamp = null;
+
+        ArrayList<String> logChunk = getNextChunkToAnalyse(timestamp, filePath);
+        ArrayList<String> errorLines = new ArrayList<>();
+
+        String currentTimestamp, errorTimesStamp;
+
+        for(int i = 0; i < logChunk.size(); i++){
+            String line = logChunk.get(i);
+            if (isTimestampLine(line)) {
+                // Update current timestamp and error
+                currentTimestamp = extractTimestamp(line);
+
+                // Check for Error and save where
+                if(line.contains("ERROR") || line.contains("WARN")){
+                    errorTimesStamp = currentTimestamp;
+                    errorLines.add(errorTimesStamp);
+                }
+            }
+        }
+        return errorLines;
     }
 
     private void saveErrorToDashboard(String msg, String timestamp){
