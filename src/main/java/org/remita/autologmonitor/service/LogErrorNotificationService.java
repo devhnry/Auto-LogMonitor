@@ -45,7 +45,7 @@ public class LogErrorNotificationService {
                 if(logFile.getName().endsWith(".log")){
                     executorService.submit(() -> {
                         try {
-                            sendMailToDevOps(map, new String());
+                            performAnalysisOnLines(logFile.getPath());
                         } catch (MessagingException e) {
                             throw new RuntimeException(e);
                         }
@@ -118,7 +118,7 @@ public class LogErrorNotificationService {
         return nextLogChunk;
     }
 
-    private ArrayList<String> performAnalysisOnLines(String filePath){
+    private void performAnalysisOnLines(String filePath) throws MessagingException {
         String timestamp = null;
         ArrayList<String> errorLines = new ArrayList<>();
 
@@ -149,10 +149,10 @@ public class LogErrorNotificationService {
                 break;
             }
         }
-        return errorLines;
+        saveErrorAsEntries(errorLines, filePath);
     }
 
-    private void saveErrorAsEntries(ArrayList<String> errorLines, String filePath) {
+    private void saveErrorAsEntries(ArrayList<String> errorLines, String filePath) throws MessagingException {
         ArrayList<String> logs = readChunkFromFile(filePath);
         Map<String, ArrayList<String>> logEntries = new HashMap<>();
 
@@ -171,6 +171,7 @@ public class LogErrorNotificationService {
             }
             logEntries.put(errorLine, logLines);
         }
+        sendMailToDevOps(logEntries, filePath);
     }
 
     private void saveErrorToDashboard(String msg, String timestamp){
@@ -183,8 +184,8 @@ public class LogErrorNotificationService {
         logErrorRepository.save(error);
     }
 
-    private void sendMailToDevOps(Map<String, List<String>> logEntries, String filename) throws MessagingException {
-        for (Map.Entry<String, List<String>> entry : logEntries.entrySet()) {
+    private void sendMailToDevOps(Map<String, ArrayList<String>> logEntries, String filename) throws MessagingException {
+        for (Map.Entry<String, ArrayList<String>> entry : logEntries.entrySet()) {
             MailResponseDto responseDto = new MailResponseDto();
             StringBuilder details = null;
             String message = String.format("%s  : Error occurred at Timestamp:  %s",  filename.split("\\.")[0], extractTimeAndDate(entry.getKey()));
