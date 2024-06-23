@@ -1,7 +1,6 @@
-package org.henry.onlinebankingsystemp.service;
+package org.remita.autologmonitor.service;
 
-import org.henry.onlinebankingsystemp.repository.AdminRepository;
-import org.henry.onlinebankingsystemp.repository.UserRepository;
+import org.remita.autologmonitor.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -11,11 +10,9 @@ import org.springframework.stereotype.Service;
 public class UserDetailService implements UserDetailsService {
 
     private final UserRepository userRepository;
-    private final AdminRepository adminRepository;
 
-    public UserDetailService(UserRepository userRepository, AdminRepository adminRepository) {
+    public UserDetailService(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.adminRepository = adminRepository;
     }
 
     @Override
@@ -23,12 +20,6 @@ public class UserDetailService implements UserDetailsService {
         var userOptional = userRepository.findByEmail(username);
         if (userOptional.isPresent()) {
             return userOptional.orElseThrow();
-        }
-
-        // If not found in the customer repository, check the admin repository
-        var adminOptional = adminRepository.findByEmail(username);
-        if (adminOptional.isPresent()) {
-            return adminOptional.orElseThrow();
         }
 
         throw new UsernameNotFoundException("Customer or admin not found with email: " + username);
