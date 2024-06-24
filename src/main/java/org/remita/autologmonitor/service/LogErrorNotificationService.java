@@ -3,24 +3,19 @@ package org.remita.autologmonitor.service;
 import jakarta.mail.MessagingException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.bouncycastle.util.Strings;
 import org.remita.autologmonitor.dto.MailResponseDto;
 import org.remita.autologmonitor.entity.LogError;
-import org.remita.autologmonitor.entity.Status;
+import org.remita.autologmonitor.enums.Status;
 import org.remita.autologmonitor.repository.LogErrorRepository;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.stream.Stream;
 
 @Service @Slf4j @AllArgsConstructor
 public class LogErrorNotificationService {
