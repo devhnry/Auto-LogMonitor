@@ -4,8 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-
-import java.sql.Blob;
+import org.remita.autologmonitor.enums.Status;
 
 @Entity @Getter @Setter @ToString
 public class LogError {
