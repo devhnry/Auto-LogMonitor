@@ -1,2 +1,7 @@
-package org.remita.autologmonitor.controller;public class AuthController {
+package org.remita.autologmonitor.controller;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class AuthController {
 }
