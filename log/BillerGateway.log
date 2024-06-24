@@ -233,7 +233,7 @@ at java.base/java.lang.Class.privateGetDeclaredConstructors(Class.java:3549) ~[n
 at java.base/java.lang.Class.getDeclaredConstructors(Class.java:2727) ~[na:na]
 at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:378) ~[spring-beans-6.1.6.jar:6.1.6]
 ... 21 common frames omitted
-Caused by: java.lang.ClassNotFoundException: org.remita.autologmonitor.service.LogErrorNotificationService
+Caused by: java.lang.ClassNotFoundException: org.remita.autologmonitor.service.impl.LogErrorNotificationServiceImpl
 at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
 at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
 at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
@@ -260,8 +260,8 @@ at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103) ~[thymeleaf-3.
 at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1064) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
 at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1053) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
 at org.remita.autologmonitor.service.EmailSenderService.sendMail(EmailSenderService.java:29) ~[classes/:na]
-at org.remita.autologmonitor.service.LogErrorNotificationService.sendMailToDevOps(LogErrorNotificationService.java:71) ~[classes/:na]
-at org.remita.autologmonitor.service.LogErrorNotificationService.lambda$loopThroughLogDirectory$0(LogErrorNotificationService.java:41) ~[classes/:na]
+at org.remita.autologmonitor.service.impl.LogErrorNotificationServiceImpl.sendMailToDevOps(LogErrorNotificationService.java:71) ~[classes/:na]
+at org.remita.autologmonitor.service.impl.LogErrorNotificationServiceImpl.lambda$loopThroughLogDirectory$0(LogErrorNotificationService.java:41) ~[classes/:na]
 at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
 at java.base/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:317) ~[na:na]
 at java.base/java.util.concurrent.FutureTask.run(FutureTask.java) ~[na:na]

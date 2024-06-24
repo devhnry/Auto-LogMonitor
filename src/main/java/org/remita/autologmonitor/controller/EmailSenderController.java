@@ -1,11 +1,8 @@
 package org.remita.autologmonitor.controller;
 
-import dev.ditsche.mailo.MailAddress;
-import dev.ditsche.mailo.factory.MailBuilder;
 import jakarta.mail.MessagingException;
 import org.remita.autologmonitor.dto.MailResponseDto;
 import org.remita.autologmonitor.service.EmailSenderService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,9 +1,8 @@
 package org.remita.autologmonitor.controller;
 
-import org.remita.autologmonitor.service.LogErrorNotificationService;
+import org.remita.autologmonitor.service.impl.LogErrorNotificationServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,9 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1")
 public class LogErrorNotificationController {
 
-    public final LogErrorNotificationService logErrorNotificationService;
+    public final LogErrorNotificationServiceImpl logErrorNotificationService;
 
-    public LogErrorNotificationController(LogErrorNotificationService logErrorNotificationService) {
+    public LogErrorNotificationController(LogErrorNotificationServiceImpl logErrorNotificationService) {
         this.logErrorNotificationService = logErrorNotificationService;
     }
 
