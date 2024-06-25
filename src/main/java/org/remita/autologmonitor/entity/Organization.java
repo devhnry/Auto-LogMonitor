@@ -18,6 +18,7 @@ public class Organization {
     private String organizationName;
     private String organizationDomain;
     private String organizationWebsite;
+    private String organizationId;
 
     @OneToMany(mappedBy = "organization")
     private List<Admin> userMembers;

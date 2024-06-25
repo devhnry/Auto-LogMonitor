@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.apache.http.HttpStatus;
 import org.jvnet.hk2.annotations.Service;
 import org.remita.autologmonitor.dto.DefaultResponseDto;
+import org.remita.autologmonitor.dto.LoginRequestDto;
 import org.remita.autologmonitor.dto.SignupRequestDto;
 import org.remita.autologmonitor.entity.Admin;
 import org.remita.autologmonitor.entity.Business;
@@ -13,16 +14,19 @@ import org.remita.autologmonitor.repository.*;
 import org.remita.autologmonitor.service.AuthenticationService;
 import org.remita.autologmonitor.service.JWTService;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Service
 @AllArgsConstructor
 public class AuthenticationServiceImpl implements AuthenticationService {
     private final AdminRepository adminRepository;
     private final BusinessRepository businessRepository;
+    private final AuthenticationManager authenticationManager;
     private final OrganizationRepository organizationRepository;
 
     private DefaultResponseDto signup(SignupRequestDto req) {
@@ -51,11 +55,16 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         }
 
         assignRequestToEntity(req, organization, admin, newBusiness);
+        res.setStatus(HttpStatus.SC_CREATED);
+        res.setMessage("Onboarding Process Complete");
+        res.setData(String.format("Business with Id: {} has been created", newBusiness.getId()));
         return res;
     };
 
-    private DefaultResponseDto login(DefaultResponseDto responseDTO) {
+    private DefaultResponseDto login(LoginRequestDto req) {
         DefaultResponseDto res = new DefaultResponseDto();
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
+                req.getEmail(), req.getPassword()));
 
         return res;
     };
@@ -74,6 +83,16 @@ public class AuthenticationServiceImpl implements AuthenticationService {
             }
         }
         return list;
+    }
+
+    public String generateOrganizationID(String orgName) {
+        if (orgName.length() < 2) {
+            throw new IllegalArgumentException("Organization name must be at least 2 characters long.");
+        }
+        String prefix = orgName.substring(0, 2).toUpperCase();
+        Random random = new Random();
+        int randomNumber = random.nextInt(900) + 100;
+        return prefix + randomNumber;
     }
 
     private void assignRequestToEntity(SignupRequestDto req, Organization organization, Admin admin, Business newBusiness){
@@ -105,6 +124,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         organization.setOrganizationName(organizationName);
         organization.setOrganizationDomain(organizationEmail);
         organization.setOrganizationWebsite(null);
+        organization.setOrganizationId(generateOrganizationID(organizationName));
         organizationRepository.save(organization);
 
         admin.setEmail(email);

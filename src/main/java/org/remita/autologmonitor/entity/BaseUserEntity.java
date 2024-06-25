@@ -30,7 +30,7 @@ public class BaseUserEntity implements UserDetails {
     private Roles roles;
 
     @ManyToOne
-    @JoinColumn(name = "organization_id")
+    @JoinColumn(name = "organizationId")
     private Organization organization;
 
     private String organizationName;
