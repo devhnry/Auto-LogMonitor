@@ -3,12 +3,17 @@ package org.remita.autologmonitor.service;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.remita.autologmonitor.dto.UserClaimsDto;
+import org.remita.autologmonitor.entity.BaseUserEntity;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
@@ -19,7 +24,6 @@ public class JWTService {
 
     private SecretKey key;
     private byte[] keyByte;
-    private static final long EXPIRATION_TIME = 86400000; //24hrs
 
     public JWTService() {
         String secretString = "HFUKNSF09839IKSFV9348J39GHIUEWFJR9EF089WUJ4FNR9HG738UJW4ONEMSCO";
@@ -27,11 +31,15 @@ public class JWTService {
         this.key = new SecretKeySpec(keyByte, "HmacSHA256");
     }
 
-    public String generateToken(UserDetails userDetails){
+    public String generateToken(BaseUserEntity user){
         return Jwts.builder()
-                .setSubject(userDetails.getUsername())
-                .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
+                .claim("orgId", user.getOrganization().getOrganizationId())
+                .claim("user", new UserClaimsDto(user.getId(),user.getFirstname(),user.getEmail()))
+                .claim("roles", user.getAuthorities())
+                .claim("type", "BEARER")
+                .setSubject(user.getUsername())
+                .setIssuedAt(Date.from(Instant.now()))
+                .setExpiration(Date.from(Instant.now().plus(24, ChronoUnit.HOURS)))
                 .signWith(SignatureAlgorithm.valueOf("HmacSHA256"), keyByte)
                 .compact();
     }
@@ -40,8 +48,8 @@ public class JWTService {
         return Jwts.builder()
                 .setClaims(claims)
                 .setSubject(userDetails.getUsername())
-                .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
+                .setIssuedAt(Date.from(Instant.now()))
+                .setExpiration(Date.from(Instant.now().plus(24, ChronoUnit.HOURS)))
                 .signWith(SignatureAlgorithm.valueOf("HmacSHA256"), keyByte)
                 .compact();
     }
