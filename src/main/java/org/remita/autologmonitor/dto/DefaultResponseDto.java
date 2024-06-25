@@ -9,7 +9,7 @@ import org.apache.http.HttpStatus;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties
 public class DefaultResponseDto {
-    private HttpStatus status;
+    private int status;
     private String message;
     private Object data;
 }

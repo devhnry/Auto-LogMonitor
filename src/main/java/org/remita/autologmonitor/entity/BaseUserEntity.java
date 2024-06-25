@@ -26,6 +26,7 @@ public class BaseUserEntity implements UserDetails {
     private String lastname;
     private String email;
     private String password;
+    private String phoneNumber;
     private Roles roles;
 
     @ManyToOne
