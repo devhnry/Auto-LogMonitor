@@ -20,13 +20,15 @@ public class User implements UserDetails {
     private String firstname;
     private String lastname;
     private String email;
-    private String username;
     private String password;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of();
     }
+
+    @Override
+    public String getUsername() { return email; }
 
     @Override
     public boolean isAccountNonExpired() {

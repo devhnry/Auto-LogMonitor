@@ -3,14 +3,13 @@ package org.remita.autologmonitor.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.apache.http.HttpStatus;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties
-public class MailResponseDto {
-    private String subject;
-    private String title;
-    private String body;
-    private String email;
+public class DefaultResponseDto {
+    private HttpStatus status;
+    private String message;
+    private Object data;
 }

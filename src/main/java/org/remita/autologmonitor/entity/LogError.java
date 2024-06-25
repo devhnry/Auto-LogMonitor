@@ -6,7 +6,8 @@ import lombok.Setter;
 import lombok.ToString;
 import org.remita.autologmonitor.enums.Status;
 
-@Entity @Getter @Setter @ToString
+@Entity
+@Getter @Setter @ToString
 public class LogError {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
