@@ -14,45 +14,12 @@ import java.util.List;
 
 @Entity
 @Getter @Setter @ToString
-public class Admin implements UserDetails {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private long adminId;
-    private String firstname;
-    private String lastname;
-    private String email;
-    private String password;
-
+public class Admin extends BaseUserEntity{
     @Enumerated(EnumType.STRING)
     private Roles role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.toString()));
-    }
-
-    @Override
-    public String getUsername() {
-        return email;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
+        return List.of(new SimpleGrantedAuthority(Roles.ADMIN.name()));
     }
 }
