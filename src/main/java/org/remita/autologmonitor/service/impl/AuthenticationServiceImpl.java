@@ -15,7 +15,6 @@ import org.remita.autologmonitor.service.AuthenticationService;
 import org.remita.autologmonitor.service.JWTService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.token.TokenService;
 
 import java.lang.reflect.Field;
 import java.util.*;
@@ -27,7 +26,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final JWTService jwtService;
     private final BusinessRepository businessRepository;
     private final AuthenticationManager authenticationManager;
-    private final TokenService tokenService;
     private final OrganizationRepository organizationRepository;
 
     private DefaultResponseDto signup(SignupRequestDto req) {

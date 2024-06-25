@@ -5,7 +5,6 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.remita.autologmonitor.dto.UserClaimsDto;
 import org.remita.autologmonitor.entity.BaseUserEntity;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -22,8 +21,8 @@ import java.util.function.Function;
 @Service
 public class JWTService {
 
-    private SecretKey key;
-    private byte[] keyByte;
+    private final SecretKey key;
+    private final byte[] keyByte;
 
     public JWTService() {
         String secretString = "HFUKNSF09839IKSFV9348J39GHIUEWFJR9EF089WUJ4FNR9HG738UJW4ONEMSCO";
