@@ -15,18 +15,19 @@ import org.remita.autologmonitor.service.AuthenticationService;
 import org.remita.autologmonitor.service.JWTService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.token.TokenService;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 @Service
 @AllArgsConstructor
 public class AuthenticationServiceImpl implements AuthenticationService {
     private final AdminRepository adminRepository;
+    private final JWTService jwtService;
     private final BusinessRepository businessRepository;
     private final AuthenticationManager authenticationManager;
+    private final TokenService tokenService;
     private final OrganizationRepository organizationRepository;
 
     private DefaultResponseDto signup(SignupRequestDto req) {
@@ -66,6 +67,16 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                 req.getEmail(), req.getPassword()));
 
+        Optional<Admin> optionalAdmin = adminRepository.findByEmail(req.getEmail());
+        if (optionalAdmin.isPresent()) {
+            var admin = optionalAdmin.orElseThrow();
+            var jwtToken = jwtService.generateToken(admin);
+            jwtService.generateRefreshToken(new HashMap<>(), admin);
+
+            res.setStatus(HttpStatus.SC_OK);
+            res.setMessage("Login Successful");
+            res.setData(String.format("Token: {}", jwtToken));
+        }
         return res;
     };
 
