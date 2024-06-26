@@ -14,7 +14,7 @@ import java.util.List;
 
 @Entity
 @Getter @Setter @ToString
-public class Admin extends BaseUserEntity{
+public class Admin extends BaseUserEntity implements IBaseUserEntity{
     @Enumerated(EnumType.STRING)
     private Roles role;
 

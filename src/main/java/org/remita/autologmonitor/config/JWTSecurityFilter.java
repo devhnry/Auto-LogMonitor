@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.remita.autologmonitor.entity.Token;
 import org.remita.autologmonitor.repository.TokenRepository;
-import org.remita.autologmonitor.service.impl.JWTServicei;
+import org.remita.autologmonitor.service.JWTService;
 import org.remita.autologmonitor.service.UserDetailService;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContext;
@@ -25,7 +25,7 @@ import java.util.function.Function;
 public class JWTSecurityFilter extends OncePerRequestFilter {
 
     private final UserDetailService userDetailService;
-    private final JWTServicei jwtService;
+    private final JWTService jwtService;
     private final TokenRepository tokenRepository;
 
     @Override
