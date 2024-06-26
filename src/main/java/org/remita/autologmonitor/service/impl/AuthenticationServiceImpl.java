@@ -68,8 +68,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         Optional<Admin> optionalAdmin = adminRepository.findByEmail(req.getEmail());
         if (optionalAdmin.isPresent()) {
             var admin = optionalAdmin.orElseThrow();
-            var jwtToken = jwtService.generateToken(admin);
-            jwtService.generateRefreshToken(new HashMap<>(), admin);
 
             LoginRequestDto request = req;
             List<String> emptyProperties = hasNoNullProperties(req);
@@ -83,6 +81,12 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 res.setData(data);
                 return res;
             }
+
+            var jwtToken = jwtService.generateToken(admin);
+            jwtService.generateRefreshToken(new HashMap<>(), admin);
+
+            saveToken(admin, jwtToken);
+            revokeAllTokens(admin);
 
             res.setStatus(HttpStatus.SC_OK);
             res.setMessage("Login Successful");
