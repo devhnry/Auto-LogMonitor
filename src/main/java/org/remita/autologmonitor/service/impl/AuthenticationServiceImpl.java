@@ -19,6 +19,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
 import java.lang.reflect.Field;
+import java.time.Duration;
 import java.time.Instant;
 import java.util.*;
 
@@ -26,6 +27,7 @@ import java.util.*;
 @AllArgsConstructor
 public class AuthenticationServiceImpl implements AuthenticationService {
     private final AdminRepository adminRepository;
+    private final UserRepository userRepository;
     private final JWTService jwtService;
     private final BusinessRepository businessRepository;
     private final AuthenticationManager authenticationManager;
@@ -88,6 +90,43 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         res.setStatus(HttpStatus.SC_CREATED);
         res.setMessage("Onboarding Process Complete, Verify account with OTP sent to mail");
         res.setData(String.format("Business with Id: {} has been created", newBusiness.getId()));
+        return res;
+    }
+
+    @Override
+    public DefaultResponseDto verifyAccount(String email, String otp) {
+
+        DefaultResponseDto res = new DefaultResponseDto();
+        Admin user = adminRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found with this email: " + email));
+        OTP otpCode = otpRepository.findByUserEntity(user.getId()).orElseThrow(
+                () -> new RuntimeException("OTP not found with this user email: " + email)
+        );
+        String code = otpCode.getOtpCode();
+        long differenceInMillis = otpCode.getCreatedAt().getTime() - otpCode.getExpirationTime().getTime();
+        long differenceInSeconds = differenceInMillis / 1000;
+
+
+        if (code.equals(otp) && differenceInSeconds < 900) {
+            user.setEnabled(true);
+            otpCode.setRevoked(true);
+
+            otpRepository.save(otpCode);
+            res.setStatus(HttpStatus.SC_OK);
+            res.setMessage("OTP verified");
+            res.setData(otpCode);
+
+            return res;
+        }
+
+        res.setStatus(HttpStatus.SC_BAD_REQUEST);
+        if(!code.equals(otp)){
+            res.setMessage("OTP has not been verified, Code is not correct");
+        }else if(differenceInSeconds > 900 && code.equals(otp)){
+            res.setMessage("OTP has not been verified, Code has expired");
+        }
+        res.setData(otpCode);
+
         return res;
     }
 

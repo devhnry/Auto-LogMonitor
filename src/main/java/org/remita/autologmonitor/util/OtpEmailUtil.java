@@ -19,7 +19,7 @@ public class OtpEmailUtil {
         mimeMessageHelper.setSubject("Verify OTP");
         mimeMessageHelper.setText("""
         <div>
-          <a href="" target="blank">Click link to verify</a>
+          <a href="https://localhost/verify-account?email=%s&otp=%s" target="blank">Click link to verify</a>
         </div>
         """.formatted(email, otp), true);
 

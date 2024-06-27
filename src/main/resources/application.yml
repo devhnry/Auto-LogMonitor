@@ -8,7 +8,7 @@ spring:
   datasource:
     username: root
     password: rootroot
-    url: "jdbc:mysql://localhost:3306/AutoLogMonitor"
+    url: "jdbc:mysql://localhost:3306/developmentAutoLog"
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     show-sql: true

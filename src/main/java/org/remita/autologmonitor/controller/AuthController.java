@@ -5,6 +5,7 @@ import org.remita.autologmonitor.dto.DefaultResponseDto;
 import org.remita.autologmonitor.dto.LoginRequestDto;
 import org.remita.autologmonitor.dto.SignupRequestDto;
 import org.remita.autologmonitor.service.AuthenticationService;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,8 +28,8 @@ public class AuthController {
         return authenticationService.login(requestDto);
     }
 
-    @PostMapping("verify-account")
-    public DefaultResponseDto verifyAccount(@RequestBody VerifyAccountDto){
-
+    @PostMapping("/verify-account")
+    public DefaultResponseDto verifyAccount(@Param("email") String email, @Param("otp") String otpcode){
+        return authenticationService.verifyAccount(email, otpcode);
     }
 }

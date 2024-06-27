@@ -28,6 +28,7 @@ public class BaseUserEntity implements UserDetails {
     private String password;
     private String phoneNumber;
     private Roles roles;
+    private boolean enabled;
 
     @ManyToOne
     @JoinColumn(name = "organizationId")

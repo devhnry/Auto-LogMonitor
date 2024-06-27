@@ -10,4 +10,6 @@ import org.springframework.stereotype.Service;
 public interface AuthenticationService {
     DefaultResponseDto signup(SignupRequestDto req);
     DefaultResponseDto login(LoginRequestDto req);
+    DefaultResponseDto verifyAccount(String email, String otp);
 }
+
