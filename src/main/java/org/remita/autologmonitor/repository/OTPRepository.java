@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface OTPRepository extends JpaRepository<Long, OTP> {
+public interface OTPRepository extends JpaRepository<OTP, Long> {
     @Query("""
     select t from OTP t where (t.user.id = :userId or t.admin.id = :userId) 
     """)

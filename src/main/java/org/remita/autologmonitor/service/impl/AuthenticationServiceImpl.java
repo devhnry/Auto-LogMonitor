@@ -1,5 +1,6 @@
 package org.remita.autologmonitor.service.impl;
 
+import jakarta.mail.MessagingException;
 import lombok.AllArgsConstructor;
 import org.apache.http.HttpStatus;
 import org.jvnet.hk2.annotations.Service;
@@ -12,10 +13,13 @@ import org.remita.autologmonitor.enums.TokenType;
 import org.remita.autologmonitor.repository.*;
 import org.remita.autologmonitor.service.AuthenticationService;
 import org.remita.autologmonitor.service.JWTService;
+import org.remita.autologmonitor.util.OtpEmailUtil;
+import org.remita.autologmonitor.util.OtpUtil;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
 import java.lang.reflect.Field;
+import java.time.Instant;
 import java.util.*;
 
 @Service
@@ -27,12 +31,22 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final AuthenticationManager authenticationManager;
     private final OrganizationRepository organizationRepository;
     private final TokenRepository tokenRepository;
+    private final OTPRepository otpRepository;
+    private final OtpEmailUtil otpEmailUtil;
+    private final OtpUtil otpUtil;
 
-    private DefaultResponseDto signup(SignupRequestDto req) {
+    @Override
+    public DefaultResponseDto login(LoginRequestDto req) { return loginImpl(req); }
+
+    @Override
+    public DefaultResponseDto signup(SignupRequestDto req){ return  signupImpl(req); }
+
+    private DefaultResponseDto signupImpl(SignupRequestDto req) {
         DefaultResponseDto res = new DefaultResponseDto();
         Organization organization = new Organization();
         Admin admin = new Admin();
         Business newBusiness = new Business();
+        OTP newOTP = new OTP();
 
         SignupRequestDto request = req;
         List<String> emptyProperties = hasNoNullProperties(request);
@@ -52,15 +66,32 @@ public class AuthenticationServiceImpl implements AuthenticationService {
             res.setMessage("Invalid Confirm Password");
             res.setData("Passwords do not match");
         }
-
         assignRequestToEntity(req, organization, admin, newBusiness);
+
+        String otp = otpUtil.generateOtp();
+
+        newOTP.setOtpCode(otp);
+        newOTP.setAdmin(admin);
+        newOTP.setCreatedAt(Date.from(Instant.now()));
+        newOTP.setExpirationTime(Date.from(Instant.now().plusSeconds(900)));
+        newOTP.setUpdatedAt(null);
+        newOTP.setRevoked(false);
+
+        otpRepository.save(newOTP);
+
+        try {
+            otpEmailUtil.sendOtpEmail(req.getEmail(), otp);
+        } catch (MessagingException e) {
+            throw new RuntimeException("Unable to send otp please try again");
+        }
+
         res.setStatus(HttpStatus.SC_CREATED);
-        res.setMessage("Onboarding Process Complete");
+        res.setMessage("Onboarding Process Complete, Verify account with OTP sent to mail");
         res.setData(String.format("Business with Id: {} has been created", newBusiness.getId()));
         return res;
-    };
+    }
 
-    private DefaultResponseDto login(LoginRequestDto req) {
+    private DefaultResponseDto loginImpl(LoginRequestDto req) {
         DefaultResponseDto res = new DefaultResponseDto();
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                 req.getEmail(), req.getPassword()));

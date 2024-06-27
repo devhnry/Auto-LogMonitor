@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Getter @Setter @ToString
@@ -20,10 +21,11 @@ public class OTP {
             generator = "otp_sequence"
     )
     private long id;
-    private long otpCode;
-    private LocalDate created_at;
-    private LocalDate updated_at;
-    private LocalDate expiration_time;
+    private String otpCode;
+    private Date createdAt;
+    private Date updatedAt;
+    private Date expirationTime;
+    private boolean isRevoked;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
