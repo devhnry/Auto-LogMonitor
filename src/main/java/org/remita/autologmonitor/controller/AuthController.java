@@ -6,14 +6,14 @@ import org.remita.autologmonitor.dto.LoginRequestDto;
 import org.remita.autologmonitor.dto.SignupRequestDto;
 import org.remita.autologmonitor.service.AuthenticationService;
 import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @AllArgsConstructor
-@RequestMapping("api/v1/auth")
+@RequestMapping("/api/v1/auth")
 public class AuthController {
 
     private final AuthenticationService authenticationService;

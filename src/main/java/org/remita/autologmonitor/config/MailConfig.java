@@ -21,7 +21,7 @@ public class MailConfig {
         SmtpConfig config = new SmtpConfig();
         config.setHost("smtp.gmail.com");
         config.setUsername("devwhenry@gmail.com");
-        config.setPassword("lele kwgc qfhh zhnc");
+        config.setPassword("dmkj mopg cmgs rjoj");
         config.setPort(587);
         return new SmtpMailProvider(config);
     }

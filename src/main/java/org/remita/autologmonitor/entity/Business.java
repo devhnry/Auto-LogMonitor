@@ -11,8 +11,8 @@ import lombok.*;
 @AllArgsConstructor @NoArgsConstructor
 public class Business {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String firstName;
     private String lastName;
     private String email;

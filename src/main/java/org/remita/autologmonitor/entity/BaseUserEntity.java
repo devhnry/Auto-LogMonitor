@@ -20,8 +20,8 @@ import java.util.List;
 @ToString
 public class BaseUserEntity implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String firstname;
     private String lastname;
     private String email;

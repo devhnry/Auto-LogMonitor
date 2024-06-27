@@ -20,7 +20,7 @@ public class OTP {
             strategy = GenerationType.SEQUENCE,
             generator = "otp_sequence"
     )
-    private long id;
+    private Long id;
     private String otpCode;
     private Date createdAt;
     private Date updatedAt;

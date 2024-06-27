@@ -3,7 +3,6 @@ package org.remita.autologmonitor.service.impl;
 import jakarta.mail.MessagingException;
 import lombok.AllArgsConstructor;
 import org.apache.http.HttpStatus;
-import org.jvnet.hk2.annotations.Service;
 import org.remita.autologmonitor.dto.DefaultResponseDto;
 import org.remita.autologmonitor.dto.LoginRequestDto;
 import org.remita.autologmonitor.dto.SignupRequestDto;
@@ -17,9 +16,10 @@ import org.remita.autologmonitor.util.OtpEmailUtil;
 import org.remita.autologmonitor.util.OtpUtil;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Field;
-import java.time.Duration;
 import java.time.Instant;
 import java.util.*;
 
@@ -27,7 +27,7 @@ import java.util.*;
 @AllArgsConstructor
 public class AuthenticationServiceImpl implements AuthenticationService {
     private final AdminRepository adminRepository;
-    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
     private final JWTService jwtService;
     private final BusinessRepository businessRepository;
     private final AuthenticationManager authenticationManager;
@@ -224,7 +224,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         organizationRepository.save(organization);
 
         admin.setEmail(email);
-        admin.setPassword(password);
+        admin.setPassword(passwordEncoder.encode(password));
         admin.setFirstname(firstName);
         admin.setLastname(lastName);
         admin.setPhoneNumber(phoneNumber);

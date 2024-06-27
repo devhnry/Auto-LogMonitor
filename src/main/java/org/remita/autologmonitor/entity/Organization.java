@@ -12,7 +12,7 @@ public class Organization {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private String id;
+    private Long id;
     private String organizationName;
     private String organizationDomain;
     private String organizationWebsite;
