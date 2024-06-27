@@ -19,9 +19,9 @@ public class Organization {
     private String organizationId;
 
     @OneToMany(mappedBy = "organization")
-    private List<Admin> userMembers;
+    private List<Admin> adminMembers;
 
     @OneToMany(mappedBy = "organization")
-    private List<User> adminMembers;
+    private List<User> userMembers;
 }
 
