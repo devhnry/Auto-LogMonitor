@@ -24,7 +24,9 @@ public class BaseUserEntity implements UserDetails {
     private Long id;
     private String firstname;
     private String lastname;
+    @Column(nullable = false, unique = true)
     private String email;
+    @Column(nullable = false, length = 60)
     private String password;
     private String phoneNumber;
     private Roles roles;

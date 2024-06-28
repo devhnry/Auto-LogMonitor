@@ -15,8 +15,10 @@ import org.remita.autologmonitor.service.AuthenticationService;
 import org.remita.autologmonitor.service.JWTService;
 import org.remita.autologmonitor.util.OtpEmailUtil;
 import org.remita.autologmonitor.util.OtpUtil;
+import org.remita.autologmonitor.util.PasswordStrengthUtil;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -38,6 +40,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final OTPRepository otpRepository;
     private final OtpEmailUtil otpEmailUtil;
     private final OtpUtil otpUtil;
+    private final PasswordStrengthUtil passwordStrengthUtil;
 
     @Override
     public DefaultResponseDto login(LoginRequestDto req) { return loginImpl(req); }
@@ -51,8 +54,11 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         Admin admin = new Admin();
         Business newBusiness = new Business();
         OTP newOTP = new OTP();
-
         try {
+
+            boolean userAlreadyExist = adminRepository.findByEmail(req.getEmail()).isPresent();
+            checkPasswordAndEmail(userAlreadyExist, req.getPassword());
+
             SignupRequestDto request = req;
             List<String> emptyProperties = hasNoNullProperties(request);
             if(!emptyProperties.isEmpty()) {
@@ -132,7 +138,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 res.setData(otpCode);
 
 //                return res;
-//            
+//
             if(differenceInSeconds > 900 && code.equals(otp)){
                 res.setStatus(HttpStatus.SC_BAD_REQUEST);
                 res.setMessage("OTP has not been verified, Code is not correct");
@@ -152,35 +158,41 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     private DefaultResponseDto loginImpl(LoginRequestDto req) {
         DefaultResponseDto res = new DefaultResponseDto();
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
-                req.getEmail(), req.getPassword()));
+        try {
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
+                    req.getEmail(), req.getPassword()));
 
-        Optional<Admin> optionalAdmin = adminRepository.findByEmail(req.getEmail());
-        if (optionalAdmin.isPresent()) {
-            var admin = optionalAdmin.orElseThrow();
+            Optional<Admin> optionalAdmin = adminRepository.findByEmail(req.getEmail());
+            if (optionalAdmin.isPresent() && optionalAdmin.get().isEnabled()) {
+                var admin = optionalAdmin.orElseThrow();
 
-            LoginRequestDto request = req;
-            List<String> emptyProperties = hasNoNullProperties(req);
-            if(!emptyProperties.isEmpty()) {
-                StringBuilder data = new StringBuilder();
-                for (String property : emptyProperties) {
-                    data.append(String.format("{} has not been filled \n", property));
+                LoginRequestDto request = req;
+                List<String> emptyProperties = hasNoNullProperties(req);
+                if(!emptyProperties.isEmpty()) {
+                    StringBuilder data = new StringBuilder();
+                    for (String property : emptyProperties) {
+                        data.append(String.format("{} has not been filled \n", property));
+                    }
+                    res.setStatus(HttpStatus.SC_BAD_REQUEST);
+                    res.setMessage("Invalid Request Made");
+                    res.setData(data);
+                    return res;
                 }
-                res.setStatus(HttpStatus.SC_BAD_REQUEST);
-                res.setMessage("Invalid Request Made");
-                res.setData(data);
-                return res;
+
+                var jwtToken = jwtService.generateToken(admin);
+                jwtService.generateRefreshToken(new HashMap<>(), admin);
+
+                saveToken(admin, jwtToken);
+                revokeAllTokens(admin);
+
+                res.setStatus(HttpStatus.SC_OK);
+                res.setMessage("Login Successful");
+                res.setData(String.format("Token: {}", jwtToken));
             }
-
-            var jwtToken = jwtService.generateToken(admin);
-            jwtService.generateRefreshToken(new HashMap<>(), admin);
-
-            saveToken(admin, jwtToken);
-            revokeAllTokens(admin);
-
-            res.setStatus(HttpStatus.SC_OK);
-            res.setMessage("Login Successful");
-            res.setData(String.format("Token: {}", jwtToken));
+        } catch (AuthenticationException e) {
+            res.setStatus(HttpStatus.SC_UNAUTHORIZED);
+            res.setMessage(e.getMessage());
+            res.setData(adminRepository.findByEmail(req.getEmail()).orElse(null));
         }
         return res;
     };
@@ -269,6 +281,24 @@ public class AuthenticationServiceImpl implements AuthenticationService {
             throw new IllegalArgumentException("Unsupported user entity type");
         }
         tokenRepository.save(token);
+    }
+
+    private DefaultResponseDto checkPasswordAndEmail(boolean accountExist, String password) {
+        DefaultResponseDto res = new DefaultResponseDto();
+        if (accountExist) {
+            res.setStatus(HttpStatus.SC_BAD_REQUEST);
+            res.setMessage("Email Already Taken");
+            return res;
+        }
+
+        log.info("Checking password Strength");
+        if (!passwordStrengthUtil.verifyPasswordStrength(password)) {
+            log.error("Password not strong enough");
+            res.setStatus(500);
+            res.setMessage("Password should contain at least 8 characters,numbers and a symbol");
+            return res;
+        }
+        return res;
     }
 
     public void revokeAllTokens(BaseUserEntity userEntity) {
