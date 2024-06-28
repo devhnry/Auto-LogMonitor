@@ -22,7 +22,8 @@ public class MailConfig {
         config.setHost("smtp.gmail.com");
         config.setUsername("devwhenry@gmail.com");
         config.setPassword("dmkj mopg cmgs rjoj");
-        config.setPort(587);
+        config.setPort(465);
+        config.setSsl(true);
         return new SmtpMailProvider(config);
     }
 }

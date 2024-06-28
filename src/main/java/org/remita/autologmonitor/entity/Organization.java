@@ -11,17 +11,17 @@ import java.util.List;
 public class Organization {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long organizationId;
     private String organizationName;
     private String organizationDomain;
     private String organizationWebsite;
-    private String organizationId;
+    private String orgId;
 
-    @OneToMany(mappedBy = "organization")
-    private List<Admin> adminMembers;
-
-    @OneToMany(mappedBy = "organization")
-    private List<User> userMembers;
+//    @OneToMany(mappedBy = "organization")
+//    private List<Admin> adminMembers;
+//
+//    @OneToMany(mappedBy = "organization")
+//    private List<User> userMembers;
 }
 

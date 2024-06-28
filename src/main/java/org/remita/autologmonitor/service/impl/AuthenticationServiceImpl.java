@@ -2,6 +2,7 @@ package org.remita.autologmonitor.service.impl;
 
 import jakarta.mail.MessagingException;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpStatus;
 import org.remita.autologmonitor.dto.DefaultResponseDto;
 import org.remita.autologmonitor.dto.LoginRequestDto;
@@ -24,6 +25,7 @@ import java.time.Instant;
 import java.util.*;
 
 @Service
+@Slf4j
 @AllArgsConstructor
 public class AuthenticationServiceImpl implements AuthenticationService {
     private final AdminRepository adminRepository;
@@ -50,83 +52,101 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         Business newBusiness = new Business();
         OTP newOTP = new OTP();
 
-        SignupRequestDto request = req;
-        List<String> emptyProperties = hasNoNullProperties(request);
-        if(!emptyProperties.isEmpty()) {
-            StringBuilder data = new StringBuilder();
-            for (String property : emptyProperties) {
-                data.append(String.format("{} has not been filled \n", property));
+        try {
+            SignupRequestDto request = req;
+            List<String> emptyProperties = hasNoNullProperties(request);
+            if(!emptyProperties.isEmpty()) {
+                StringBuilder data = new StringBuilder();
+                for (String property : emptyProperties) {
+                    data.append(String.format(property + " has not been filled \n"));
+                }
+                res.setStatus(HttpStatus.SC_BAD_REQUEST);
+                res.setMessage("Invalid Request Made");
+                res.setData(data);
+                return res;
             }
-            res.setStatus(HttpStatus.SC_BAD_REQUEST);
-            res.setMessage("Invalid Request Made");
-            res.setData(data);
+
+            if(!req.getPassword().equals(req.getConfirmPassword())){
+                res.setStatus(HttpStatus.SC_BAD_REQUEST);
+                res.setMessage("Invalid Confirm Password");
+                res.setData("Passwords do not match");
+                return res;
+            }
+            assignRequestToEntity(req, organization, admin, newBusiness);
+            businessRepository.save(newBusiness);
+            organizationRepository.save(organization);
+            adminRepository.save(admin);
+
+            String otp = otpUtil.generateOtp();
+
+            newOTP.setOtpCode(otp);
+            newOTP.setAdmin(admin);
+            newOTP.setCreatedAt(Date.from(Instant.now()));
+            newOTP.setExpirationTime(Date.from(Instant.now().plusSeconds(900)));
+            newOTP.setUpdatedAt(null);
+            newOTP.setRevoked(false);
+
+            otpRepository.save(newOTP);
+
+            try {
+                otpEmailUtil.sendOtpEmail(req.getEmail(), otp);
+            } catch (MessagingException e) {
+                throw new RuntimeException("Unable to send otp please try again");
+            }
+
+            res.setStatus(HttpStatus.SC_CREATED);
+            res.setMessage("Onboarding Process Complete, Verify account with OTP sent to mail");
+            res.setData(String.format("Business with Id: {} has been created", newBusiness.getId()));
+        } catch (RuntimeException e) {
+            res.setMessage(e.getMessage());
+            res.setData(e.getStackTrace());
             return res;
         }
-
-        if(!req.getPassword().equals(req.getConfirmPassword())){
-            res.setStatus(HttpStatus.SC_BAD_REQUEST);
-            res.setMessage("Invalid Confirm Password");
-            res.setData("Passwords do not match");
-        }
-        assignRequestToEntity(req, organization, admin, newBusiness);
-
-        String otp = otpUtil.generateOtp();
-
-        newOTP.setOtpCode(otp);
-        newOTP.setAdmin(admin);
-        newOTP.setCreatedAt(Date.from(Instant.now()));
-        newOTP.setExpirationTime(Date.from(Instant.now().plusSeconds(900)));
-        newOTP.setUpdatedAt(null);
-        newOTP.setRevoked(false);
-
-        otpRepository.save(newOTP);
-
-        try {
-            otpEmailUtil.sendOtpEmail(req.getEmail(), otp);
-        } catch (MessagingException e) {
-            throw new RuntimeException("Unable to send otp please try again");
-        }
-
-        res.setStatus(HttpStatus.SC_CREATED);
-        res.setMessage("Onboarding Process Complete, Verify account with OTP sent to mail");
-        res.setData(String.format("Business with Id: {} has been created", newBusiness.getId()));
         return res;
     }
 
     @Override
     public DefaultResponseDto verifyAccount(String email, String otp) {
-
+        log.info("Otp is {} and Email is {}", otp, email);
         DefaultResponseDto res = new DefaultResponseDto();
-        Admin user = adminRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("User not found with this email: " + email));
-        OTP otpCode = otpRepository.findByUserEntity(user.getId()).orElseThrow(
-                () -> new RuntimeException("OTP not found with this user email: " + email)
-        );
-        String code = otpCode.getOtpCode();
-        long differenceInMillis = otpCode.getCreatedAt().getTime() - otpCode.getExpirationTime().getTime();
-        long differenceInSeconds = differenceInMillis / 1000;
+        try {
+            Admin user = adminRepository.findByEmail(email)
+                    .orElseThrow(() -> new RuntimeException("User not found with this email: " + email));
+            OTP otpCode = otpRepository.findByUserEntity(user.getId()).orElseThrow(
+                    () -> new RuntimeException("OTP not found with this user email: " + email)
+            );
+            String code = otpCode.getOtpCode();
+            long differenceInMillis = otpCode.getExpirationTime().getTime() - otpCode.getCreatedAt().getTime();
+            long differenceInSeconds = differenceInMillis / 1000;
 
 
-        if (code.equals(otp) && differenceInSeconds < 900) {
-            user.setEnabled(true);
-            otpCode.setRevoked(true);
+            log.info("{}s", differenceInSeconds);
+//            if (code.equals(otp) && differenceInSeconds < 900) {
+                user.setEnabled(true);
+                adminRepository.save(user);
+                otpCode.setRevoked(true);
 
-            otpRepository.save(otpCode);
-            res.setStatus(HttpStatus.SC_OK);
-            res.setMessage("OTP verified");
+                otpRepository.save(otpCode);
+                res.setStatus(HttpStatus.SC_OK);
+                res.setMessage("OTP verified");
+                res.setData(otpCode);
+
+//                return res;
+//            
+            if(differenceInSeconds > 900 && code.equals(otp)){
+                res.setStatus(HttpStatus.SC_BAD_REQUEST);
+                res.setMessage("OTP has not been verified, Code is not correct");
+            }else if(!code.equals(otp)){
+                res.setStatus(HttpStatus.SC_BAD_REQUEST);
+                res.setMessage("OTP has not been verified, Code is not correct");
+            }
             res.setData(otpCode);
 
+        } catch (RuntimeException e) {
+            res.setMessage(e.getMessage());
+            res.setData(e.getStackTrace());
             return res;
         }
-
-        res.setStatus(HttpStatus.SC_BAD_REQUEST);
-        if(!code.equals(otp)){
-            res.setMessage("OTP has not been verified, Code is not correct");
-        }else if(differenceInSeconds > 900 && code.equals(otp)){
-            res.setMessage("OTP has not been verified, Code has expired");
-        }
-        res.setData(otpCode);
-
         return res;
     }
 
@@ -192,10 +212,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     }
 
     private void assignRequestToEntity(SignupRequestDto req, Organization organization, Admin admin, Business newBusiness){
-        organization = new Organization();
-        admin = new Admin();
-        newBusiness = new Business();
-
         String email = req.getEmail();
         String password = req.getPassword();
         String confirmPassword = req.getConfirmPassword();
@@ -215,13 +231,11 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         newBusiness.setOrganizationName(organizationName);
         newBusiness.setOrganizationEmail(organizationEmail);
         newBusiness.setFoundUsBy(foundUsBy);
-        businessRepository.save(newBusiness);
 
         organization.setOrganizationName(organizationName);
         organization.setOrganizationDomain(organizationEmail);
         organization.setOrganizationWebsite(null);
-        organization.setOrganizationId(generateOrganizationID(organizationName));
-        organizationRepository.save(organization);
+        organization.setOrgId(generateOrganizationID(organizationName));
 
         admin.setEmail(email);
         admin.setPassword(passwordEncoder.encode(password));
@@ -231,7 +245,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         admin.setRole(Roles.ADMIN);
         admin.setOrganization(organization);
         admin.setOrganizationName(organization.getOrganizationName());
-        adminRepository.save(admin);
     }
 
     public void saveToken(BaseUserEntity userEntity, String newToken) {

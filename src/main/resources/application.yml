@@ -8,22 +8,27 @@ spring:
   datasource:
     username: root
     password: rootroot
-    url: "jdbc:mysql://localhost:3306/developmentAutoLog"
+    url: "jdbc:mysql://localhost:3306/devLog"
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: update
+    open-in-view: false
   mail:
     host: smtp.gmail.com
-    port: 587
+    port: 465
     username: devwhenry@gmail.com
     password: dmkj mopg cmgs rjoj
     properties:
       mail:
+        transport:
+          protocol: smtp
         smtp:
           auth: true
           starttls:
+            enable: true
+          ssl:
             enable: true
 
 logging:

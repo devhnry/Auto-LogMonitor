@@ -13,7 +13,7 @@ import java.util.List;
 @Getter @Setter @ToString @AllArgsConstructor @NoArgsConstructor
 public class User extends BaseUserEntity implements IBaseUserEntity{
     @ManyToOne
-    @JoinColumn(name = "organization_name")
+    @JoinColumn(name = "organizationName")
     private Organization organization;
 
     @Column(updatable = false)

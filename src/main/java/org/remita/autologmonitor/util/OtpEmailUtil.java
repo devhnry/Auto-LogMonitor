@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 @AllArgsConstructor
 public class OtpEmailUtil {
+//    private JavaMailSender javaMailSender;
     private JavaMailSender javaMailSender;
 
     public void sendOtpEmail(String email, String otp) throws MessagingException {
