@@ -43,10 +43,14 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final PasswordStrengthUtil passwordStrengthUtil;
 
     @Override
-    public DefaultResponseDto login(LoginRequestDto req) { return loginImpl(req); }
+    public DefaultResponseDto login(LoginRequestDto req) {
+        return loginImpl(req);
+    }
 
     @Override
-    public DefaultResponseDto signup(SignupRequestDto req){ return  signupImpl(req); }
+    public DefaultResponseDto signup(SignupRequestDto req) {
+        return signupImpl(req);
+    }
 
     private DefaultResponseDto signupImpl(SignupRequestDto req) {
         DefaultResponseDto res = new DefaultResponseDto();
@@ -54,121 +58,30 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         Admin admin = new Admin();
         Business newBusiness = new Business();
         OTP newOTP = new OTP();
+
         try {
-            try {
-                boolean userAlreadyExist = adminRepository.findByEmail(req.getEmail()).isPresent();
-                log.info("Account exist is: {}", userAlreadyExist);
-                checkPasswordAndEmail(userAlreadyExist, req.getPassword());
-            } catch (Exception e) {
-                res.setStatus(HttpStatus.SC_BAD_REQUEST);
-                res.setMessage(e.getMessage());
-                return res;
-            }
+            boolean userAlreadyExist = adminRepository.findByEmail(req.getEmail()).isPresent();
+            log.info("Account exist is: {}", userAlreadyExist);
+            validatePasswordAndEmail(userAlreadyExist, req.getPassword());
 
-            SignupRequestDto request = req;
-
-            DefaultResponseDto res1 = checkForEmptyField(request, res);
-            if (res1 != null) return res1;
-
-            if(!req.getPassword().equals(req.getConfirmPassword())){
-                res.setStatus(HttpStatus.SC_BAD_REQUEST);
-                res.setMessage("Invalid Request Made");
-                res.setData("Passwords do not match");
-                return res;
-            }
+            DefaultResponseDto validationResponse = validateSignupRequest(req);
+            if (validationResponse != null) return validationResponse;
 
             assignRequestToEntity(req, organization, admin, newBusiness);
-            businessRepository.save(newBusiness);
-            organizationRepository.save(organization);
-            adminRepository.save(admin);
+            saveEntities(newBusiness, organization, admin);
 
             String otp = otpUtil.generateOtp();
-
-            newOTP.setOtpCode(otp);
-            newOTP.setAdmin(admin);
-            newOTP.setCreatedAt(Date.from(Instant.now()));
-            newOTP.setExpirationTime(Date.from(Instant.now().plusSeconds(900)));
-            newOTP.setUpdatedAt(null);
-            newOTP.setRevoked(false);
-
-            otpRepository.save(newOTP);
-
-            try {
-                otpEmailUtil.sendOtpEmail(req.getEmail(), otp);
-            } catch (MessagingException e) {
-                res.setStatus(HttpStatus.SC_INTERNAL_SERVER_ERROR);
-                res.setMessage("Unable to send OTP to email");
-                res.setData(req);
-                return res;
-            }
+            saveAndSendOtp(admin, otp, req.getEmail());
 
             res.setStatus(HttpStatus.SC_CREATED);
             res.setMessage("Onboarding Process Complete, Verify account with OTP sent to mail");
-            res.setData(String.format("Business with Id: %s has been created", newBusiness.getId()));
+            res.setData(String.format("Business with Id: %s has been created", organization.getOrgId()));
 
-        } catch (RuntimeException e) {
-            res.setMessage(e.getMessage());
-            res.setData(e.getStackTrace());
-            return res;
-        }
-        return res;
-    }
-
-    private <T> DefaultResponseDto checkForEmptyField(T request, DefaultResponseDto res) {
-        List<String> emptyProperties = hasNoNullProperties(request);
-        Map<String,String> emptyFields = new HashMap<>();
-        if(!emptyProperties.isEmpty()) {
-            for (String property : emptyProperties) {
-                String message = String.format("This filed cannot be empty");
-                emptyFields.put(property, message);
-            }
-            res.setStatus(HttpStatus.SC_BAD_REQUEST);
-            res.setMessage("Invalid Request Made");
-            res.setData(emptyFields);
-            return res;
-        }
-        return null;
-    }
-
-    @Override
-    public DefaultResponseDto verifyAccount(String email, String otp) {
-        log.info("Otp is {} and Email is {}", otp, email);
-        DefaultResponseDto res = new DefaultResponseDto();
-        try {
-            Admin user = adminRepository.findByEmail(email)
-                    .orElseThrow(() -> new RuntimeException("User not found with this email: " + email));
-            OTP otpCode = otpRepository.findByUserEntity(user.getId()).orElseThrow(
-                    () -> new RuntimeException("OTP not found with this user email: " + email)
-            );
-            String code = otpCode.getOtpCode();
-
-            boolean expired = new Date().getTime() > otpCode.getExpirationTime().getTime();
-            log.info(String.valueOf(new Date().getTime()));
-            log.info(String.valueOf(otpCode.getExpirationTime().getTime()));
-            log.info(String.valueOf(expired));
-
-            if (code.equals(otp) && !expired) {
-                user.setEnabled(true);
-                adminRepository.save(user);
-                otpCode.setRevoked(true);
-
-                otpRepository.save(otpCode);
-                res.setStatus(HttpStatus.SC_OK);
-                res.setMessage("OTP verified");
-                res.setData(otpCode);
-            } else if(expired && code.equals(otp)){
-                res.setStatus(HttpStatus.SC_BAD_REQUEST);
-                res.setMessage("OTP has not been verified, OTP has expired");
-                return res;
-            }else if(!code.equals(otp)){
-                res.setStatus(HttpStatus.SC_BAD_REQUEST);
-                res.setMessage("OTP has not been verified, Code is not correct");
-                return res;
-            }
-        } catch (RuntimeException e) {
-            res.setMessage(e.getMessage());
-            res.setData(e.getStackTrace());
-            return res;
+        } catch (Exception e) {
+            log.error("Error during signup: {}", e.getMessage());
+            res.setStatus(HttpStatus.SC_INTERNAL_SERVER_ERROR);
+            res.setMessage("An error occurred during signup");
+            res.setData(e.getMessage());
         }
         return res;
     }
@@ -176,15 +89,13 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private DefaultResponseDto loginImpl(LoginRequestDto req) {
         DefaultResponseDto res = new DefaultResponseDto();
         try {
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
-                    req.getEmail(), req.getPassword()));
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(req.getEmail(), req.getPassword()));
 
             Optional<Admin> optionalAdmin = adminRepository.findByEmail(req.getEmail());
             if (optionalAdmin.isPresent() && optionalAdmin.get().isEnabled()) {
-                var admin = optionalAdmin.orElseThrow();
+                var admin = optionalAdmin.get();
 
-                LoginRequestDto request = req;
-                checkForEmptyField(request,res );
+                validateLoginRequest(req, res);
 
                 var jwtToken = jwtService.generateToken(admin);
                 jwtService.generateRefreshToken(new HashMap<>(), admin);
@@ -194,43 +105,114 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
                 res.setStatus(HttpStatus.SC_OK);
                 res.setMessage("Login Successful");
-                res.setData(String.format("Token: {}", jwtToken));
+                res.setData(String.format("Token: %s", jwtToken));
+            } else {
+                res.setStatus(HttpStatus.SC_UNAUTHORIZED);
+                res.setMessage("Invalid credentials or account not enabled");
             }
         } catch (AuthenticationException e) {
+            log.error("Authentication error: {}", e.getMessage());
             res.setStatus(HttpStatus.SC_UNAUTHORIZED);
-            res.setMessage(e.getMessage());
-            res.setData(adminRepository.findByEmail(req.getEmail()).orElse(null));
+            res.setMessage("Authentication failed");
+            res.setData(e.getMessage());
         }
         return res;
-    };
+    }
 
-    private List<String> hasNoNullProperties(Object entity) {
-        List<String> list = new ArrayList<>();
+    @Override
+    public DefaultResponseDto verifyAccount(String email, String otp) {
+        log.info("Otp is {} and Email is {}", otp, email);
+        DefaultResponseDto res = new DefaultResponseDto();
+        try {
+            Admin user = adminRepository.findByEmail(email)
+                    .orElseThrow(() -> new IllegalArgumentException("User not found with this email: " + email));
+            OTP otpCode = otpRepository.findByUserEntity(user.getId()).orElseThrow(
+                    () -> new IllegalArgumentException("OTP not found with this user email: " + email)
+            );
+            String code = otpCode.getOtpCode();
+            boolean expired = new Date().getTime() > otpCode.getExpirationTime().getTime();
+            log.info("OTP expiration status: {}", expired);
+
+            if (code.equals(otp) && !expired) {
+                enableUserAccount(user, otpCode, res);
+            } else {
+                handleInvalidOtp(res, expired, code, otp);
+            }
+        } catch (Exception e) {
+            log.error("Error during OTP verification: {}", e.getMessage());
+            res.setStatus(HttpStatus.SC_INTERNAL_SERVER_ERROR);
+            res.setMessage("An error occurred during OTP verification");
+            res.setData(e.getMessage());
+        }
+        return res;
+    }
+
+    private void validatePasswordAndEmail(boolean accountExist, String password) throws IllegalArgumentException {
+        log.info("Checking if account exists");
+        if (accountExist) {
+            throw new IllegalArgumentException("User already exists, email taken");
+        }
+
+        log.info("Checking password strength");
+        if (!passwordStrengthUtil.verifyPasswordStrength(password)) {
+            throw new IllegalArgumentException("Password should contain at least 8 characters, numbers, and a symbol");
+        }
+    }
+
+    private DefaultResponseDto validateSignupRequest(SignupRequestDto req) {
+        DefaultResponseDto res = new DefaultResponseDto();
+        List<String> emptyProperties = checkForEmptyFields(req);
+        if (!emptyProperties.isEmpty()) {
+            Map<String, String> emptyFields = new HashMap<>();
+            for (String property : emptyProperties) {
+                emptyFields.put(property, "This field cannot be empty");
+            }
+            res.setStatus(HttpStatus.SC_BAD_REQUEST);
+            res.setMessage("Invalid Request Made");
+            res.setData(emptyFields);
+            return res;
+        }
+
+        if (!req.getPassword().equals(req.getConfirmPassword())) {
+            res.setStatus(HttpStatus.SC_BAD_REQUEST);
+            res.setMessage("Invalid Request Made");
+            res.setData("Passwords do not match");
+            return res;
+        }
+        return null;
+    }
+
+    private void validateLoginRequest(LoginRequestDto req, DefaultResponseDto res) {
+        List<String> emptyProperties = checkForEmptyFields(req);
+        if (!emptyProperties.isEmpty()) {
+            Map<String, String> emptyFields = new HashMap<>();
+            for (String property : emptyProperties) {
+                emptyFields.put(property, "This field cannot be empty");
+            }
+            res.setStatus(HttpStatus.SC_BAD_REQUEST);
+            res.setMessage("Invalid Request Made");
+            res.setData(emptyFields);
+        }
+    }
+
+    private List<String> checkForEmptyFields(Object entity) {
+        List<String> emptyProperties = new ArrayList<>();
         Field[] fields = entity.getClass().getDeclaredFields();
         for (Field field : fields) {
             field.setAccessible(true);
             try {
                 if (field.get(entity) == null) {
-                    list.add(field.getName());
+                    emptyProperties.add(field.getName());
                 }
             } catch (IllegalAccessException e) {
-                throw new RuntimeException(e.getMessage());
+                log.error("Field access error: {}", e.getMessage());
+                throw new RuntimeException(e);
             }
         }
-        return list;
+        return emptyProperties;
     }
 
-    public String generateOrganizationID(String orgName) {
-        if (orgName.length() < 2) {
-            throw new IllegalArgumentException("Organization name must be at least 2 characters long.");
-        }
-        String prefix = orgName.substring(0, 2).toUpperCase();
-        Random random = new Random();
-        int randomNumber = random.nextInt(900) + 100;
-        return prefix + randomNumber;
-    }
-
-    private void assignRequestToEntity(SignupRequestDto req, Organization organization, Admin admin, Business newBusiness){
+    private void assignRequestToEntity(SignupRequestDto req, Organization organization, Admin admin, Business newBusiness) {
         String email = req.getEmail();
         String password = req.getPassword();
         String confirmPassword = req.getConfirmPassword();
@@ -266,7 +248,17 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         admin.setOrganizationName(organization.getOrganizationName());
     }
 
-    public void saveToken(BaseUserEntity userEntity, String newToken) {
+    private String generateOrganizationID(String orgName) {
+        if (orgName.length() < 2) {
+            throw new IllegalArgumentException("Organization name must be at least 2 characters long.");
+        }
+        String prefix = orgName.substring(0, 2).toUpperCase();
+        Random random = new Random();
+        int randomNumber = random.nextInt(900) + 100;
+        return prefix + randomNumber;
+    }
+
+    private void saveToken(BaseUserEntity userEntity, String newToken) {
         Token token;
         if (userEntity instanceof User) {
             token = Token.builder()
@@ -290,20 +282,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         tokenRepository.save(token);
     }
 
-    private void checkPasswordAndEmail(boolean accountExist, String password) throws Exception {
-        DefaultResponseDto res = new DefaultResponseDto();
-        log.info("Checking if account exists");
-        if (accountExist) {
-            throw new Exception("User already exists, email taken");
-        }
-
-        log.info("Checking password Strength");
-        if (!passwordStrengthUtil.verifyPasswordStrength(password)) {
-            throw new Exception("Password should contain at least 8 characters,numbers and a symbol");
-        }
-    }
-
-    public void revokeAllTokens(BaseUserEntity userEntity) {
+    private void revokeAllTokens(BaseUserEntity userEntity) {
         var validTokens = tokenRepository.findValidTokenByUserEntity(userEntity.getId());
         if (validTokens.isEmpty()) {
             return;
@@ -315,4 +294,41 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         tokenRepository.saveAll(validTokens);
     }
 
+    private void saveEntities(Business newBusiness, Organization organization, Admin admin) {
+        businessRepository.save(newBusiness);
+        organizationRepository.save(organization);
+        adminRepository.save(admin);
+    }
+
+    private void saveAndSendOtp(Admin admin, String otp, String email) throws MessagingException {
+        OTP newOTP = new OTP();
+        newOTP.setOtpCode(otp);
+        newOTP.setAdmin(admin);
+        newOTP.setCreatedAt(Date.from(Instant.now()));
+        newOTP.setExpirationTime(Date.from(Instant.now().plusSeconds(900)));
+        newOTP.setUpdatedAt(null);
+        newOTP.setRevoked(false);
+        otpRepository.save(newOTP);
+        otpEmailUtil.sendOtpEmail(email, otp);
+    }
+
+    private void enableUserAccount(Admin user, OTP otpCode, DefaultResponseDto res) {
+        user.setEnabled(true);
+        adminRepository.save(user);
+        otpCode.setRevoked(true);
+        otpRepository.save(otpCode);
+        res.setStatus(HttpStatus.SC_OK);
+        res.setMessage("OTP verified");
+        res.setData(otpCode);
+    }
+
+    private void handleInvalidOtp(DefaultResponseDto res, boolean expired, String code, String otp) {
+        if (expired && code.equals(otp)) {
+            res.setStatus(HttpStatus.SC_BAD_REQUEST);
+            res.setMessage("OTP has not been verified, OTP has expired");
+        } else if (!code.equals(otp)) {
+            res.setStatus(HttpStatus.SC_BAD_REQUEST);
+            res.setMessage("OTP has not been verified, Code is not correct");
+        }
+    }
 }
