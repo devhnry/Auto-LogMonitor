@@ -56,21 +56,24 @@ public class LogErrorNotificationServiceImpl implements LogErrorNotificationServ
         executorService.shutdown();
     }
 
-    private ArrayList<String> readChunkFromFile(String filePath){
+    private ArrayList<String> readChunkFromFile(String filePath) {
         File logFile = new File(filePath);
+        log.info("Reading file: {}", logFile);
         ArrayList<String> allLogLines = new ArrayList<>();
-        try(BufferedReader READER = new BufferedReader(new FileReader(logFile))){
+        try (BufferedReader READER = new BufferedReader(new FileReader(logFile))) {
             String line;
-            while ((line = READER.readLine()) != null){
+            while ((line = READER.readLine()) != null) {
                 allLogLines.add(line);
             }
-        }catch (IOException e){
-            log.error("Exception Occurred while reading file {}", e.getMessage());
+        } catch (IOException e) {
+            log.error("Exception occurred while reading file {}: {}", filePath, e.getMessage(), e);
         }
+        log.info("Completed reading file: {}", filePath);
         return allLogLines;
     }
 
     private int binarySearchByTimestamp(String targetTimestamp, String filePath) {
+        log.info("Performing binary search on LogFile {}", filePath);
         ArrayList<String> logs = readChunkFromFile(filePath);
         int left = 0, right = logs.size() - 1;
 
@@ -79,50 +82,62 @@ public class LogErrorNotificationServiceImpl implements LogErrorNotificationServ
             String midLine = logs.get(mid);
             String midTimestamp;
 
-            //Checking if the line is not an error line
+            // Checking if the line is not an error line
             if (!isTimestampLine(midLine)) {
+                log.debug("Mid line is not a timestamp line: {}", midLine);
                 while (mid < right && !isTimestampLine(logs.get(mid))) {
                     mid++;
                 }
                 if (mid >= right) {
+                    log.debug("Reached end of logs while searching for timestamp line");
                     break;
                 }
                 midLine = logs.get(mid);
             }
             midTimestamp = extractTimestamp(midLine);
+            log.debug("Comparing midTimestamp {} with targetTimestamp {}", midTimestamp, targetTimestamp);
 
             // The main binary search function
             if (midTimestamp != null) {
                 if (midTimestamp.equals(targetTimestamp)) {
+                    log.info("Timestamp match found at index {}", mid);
                     return mid;
                 } else if (targetTimestamp.compareTo(midTimestamp) > 0) {
                     left = mid + 1;
                 } else {
                     right = mid - 1;
                 }
+            } else {
+                log.debug("Mid timestamp is null, skipping this entry");
             }
         }
+        log.info("No match found for timestamp {}", targetTimestamp);
         return -1;
     }
 
     private ArrayList<String> getNextChunkToAnalyse(String timeStamp, String filePath) {
+        log.info("Getting next chunk to analyze from file: {}", filePath);
         ArrayList<String> logs = readChunkFromFile(filePath);
         int chunkSize = 50;
-        int index = binarySearchByTimestamp(timeStamp,filePath);
+        int index = binarySearchByTimestamp(timeStamp, filePath);
+        log.debug("Starting index for next chunk: {}", index);
         ArrayList<String> nextLogChunk = new ArrayList<>();
         for (int i = index + 1; i <= index + chunkSize && i < logs.size(); i++) {
             nextLogChunk.add(logs.get(i));
         }
+        log.info("Next chunk to analyze contains {} lines", nextLogChunk.size());
         return nextLogChunk;
     }
 
     private void performAnalysisOnLines(String filePath) throws MessagingException {
+        log.info("Performing Analysis check on LogFile {}", filePath);
         String timestamp = null;
         ArrayList<String> errorLines = new ArrayList<>();
 
         while (true) {
             ArrayList<String> logChunk = getNextChunkToAnalyse(timestamp, filePath);
             if (logChunk == null || logChunk.isEmpty()) {
+                log.info("No more log chunks to analyze");
                 break;
             }
 
@@ -131,12 +146,11 @@ public class LogErrorNotificationServiceImpl implements LogErrorNotificationServ
 
             for (String line : logChunk) {
                 if (isTimestampLine(line)) {
-                    // Update current timestamp and error
                     currentTimestamp = extractTimestamp(line);
                     lastTimestamp = currentTimestamp;
 
-                    // Check for Error and save where
                     if (line.contains("ERROR") || line.contains("WARN")) {
+                        log.info("Error or Warn Detected on {} at timestamp {}", filePath, currentTimestamp);
                         errorTimesStamp = currentTimestamp;
                         errorLines.add(errorTimesStamp);
                     }
@@ -144,6 +158,7 @@ public class LogErrorNotificationServiceImpl implements LogErrorNotificationServ
             }
             timestamp = lastTimestamp;
             if (timestamp == null) {
+                log.warn("Last timestamp is null, breaking out of the loop");
                 break;
             }
         }
@@ -151,18 +166,21 @@ public class LogErrorNotificationServiceImpl implements LogErrorNotificationServ
     }
 
     private void saveErrorAsEntries(ArrayList<String> errorLines, String filePath) throws MessagingException {
+        log.info("Saving error lines for file: {}", filePath);
         ArrayList<String> logs = readChunkFromFile(filePath);
         Map<String, ArrayList<String>> logEntries = new HashMap<>();
 
         for (String errorLine : errorLines) {
+            log.debug("Processing error line: {}", errorLine);
             boolean newTimeStampReached = false;
             int startIndex = binarySearchByTimestamp(errorLine, filePath);
+            log.debug("Start index for error line {}: {}", errorLine, startIndex);
 
             ArrayList<String> logLines = new ArrayList<>();
 
             while (startIndex < logs.size() && !newTimeStampReached) {
                 if (isTimestampLine(logs.get(startIndex))) {
-                        newTimeStampReached = true;
+                    newTimeStampReached = true;
                 }
                 logLines.add(logs.get(startIndex));
                 startIndex++;
@@ -172,30 +190,33 @@ public class LogErrorNotificationServiceImpl implements LogErrorNotificationServ
         sendMailToDevOps(logEntries, filePath);
     }
 
-    private void saveErrorToDashboard(String msg, String timestamp){
+    private void saveErrorToDashboard(String msg, String timestamp) {
         LogError error = new LogError();
         error.setStatus(Status.PENDING);
         error.setMessage(msg);
         error.setTimeStamp(timestamp);
         error.setSolution("");
 
+        log.info("Saving error to dashboard: {} at {}", msg, timestamp);
         logErrorRepository.save(error);
     }
 
     private void sendMailToDevOps(Map<String, ArrayList<String>> logEntries, String filename) throws MessagingException {
+        log.info("Sending mail to devops for file: {}", filename);
         for (Map.Entry<String, ArrayList<String>> entry : logEntries.entrySet()) {
             MailResponseDto responseDto = new MailResponseDto();
-            StringBuilder details = null;
-            String message = String.format("%s  : Error occurred at Timestamp:  %s",  filename.split("\\.")[0], extractTimeAndDate(entry.getKey()));
+            StringBuilder details = new StringBuilder();
+            String message = String.format("%s  : Error occurred at Timestamp:  %s", filename.split("\\.")[0], extractTimeAndDate(entry.getKey()));
             responseDto.setTitle(message);
             responseDto.setEmail("taiwoh782@gmail.com");
             responseDto.setSubject("Error occurred on " + filename.split("\\.")[0]);
 
-            for (String logLines : entry.getValue()){
-                details.append(logLines).append("\n");
+            for (String logLine : entry.getValue()) {
+                details.append(logLine).append("\n");
             }
-            responseDto.setBody("---------\n" + details + "\n---------");
+            responseDto.setBody("---------\n" + details.toString() + "\n---------");
 
+            log.info("Sending email with subject: {}", responseDto.getSubject());
             emailSenderService.sendMail(responseDto);
             saveErrorToDashboard(message, extractTimeAndDate(entry.getKey()));
         }

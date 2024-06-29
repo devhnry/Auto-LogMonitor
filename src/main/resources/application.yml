@@ -8,7 +8,7 @@ spring:
   datasource:
     username: root
     password: rootroot
-    url: "jdbc:mysql://localhost:3306/devLog"
+    url: "jdbc:mysql://localhost:3306/dev2"
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     show-sql: true
@@ -33,7 +33,7 @@ spring:
 
 logging:
   file:
-    name: "log/service.log"
+    name: "log/service2.log"
 
 server:
   port: 9100
